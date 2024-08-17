@@ -1,13 +1,13 @@
-extends Node
 class_name FSM
+extends Node
 
 
-var current_state : State
-var states : Dictionary = {}
 @export var initial_state : State
+var current_state : State
+var states : Dictionary = {} # key - state name; # val - state instance
 
 
-func _ready():
+func _ready() -> void:
 	for child in get_children():
 		if child is State:
 			states[child.name] = child
@@ -16,7 +16,7 @@ func _ready():
 	change_state(initial_state.name)
 
 
-func change_state(new_state_name: String):
+func change_state(new_state_name: String) -> void:
 	var new_state = states[new_state_name]
 	
 	if current_state:
