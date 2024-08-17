@@ -278,7 +278,7 @@ default_scale = NodePath("Medium")
 player_root = NodePath("..")
 camera = NodePath("../Camera2D")
 player_movement = NodePath("..")
-scale_speed = 1.0
+scale_speed = 0.8
 
 [node name="Small" type="Node2D" parent="CharacterBody2D/Scaler"]
 script = ExtResource("5_8ej4o")

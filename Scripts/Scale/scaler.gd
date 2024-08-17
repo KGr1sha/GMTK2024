@@ -13,6 +13,7 @@ var current_scale : ScaleSettings
 var target_player_scale : Vector2
 var target_camera_zoom : Vector2
 var t : float
+var is_scaling : bool
 
 
 func _ready() -> void:
@@ -20,6 +21,8 @@ func _ready() -> void:
 
 	if player_movement == null:
 		player_movement = player_root as PlayerMovement
+	
+	is_scaling = false
 
 
 func _process(_delta: float) -> void:
@@ -34,8 +37,10 @@ func _physics_process(delta: float) -> void:
 	if player_root.scale.distance_to(target_player_scale) < 0.1 and\
 	camera.zoom.distance_to(target_camera_zoom) < 0.1:
 		t = 0.0
+		is_scaling = false
 		return
 
+	is_scaling = true
 	if scale_speed == 0:
 		t = 1
 	else:
@@ -54,7 +59,7 @@ func initialize_scales() -> void:
 	
 
 func try_set_scale(new_scale_id : int) -> bool:
-	if scales.has(new_scale_id) == false:
+	if scales.has(new_scale_id) == false or is_scaling:
 		return false
 
 	var new_scale : ScaleSettings = scales[new_scale_id]
