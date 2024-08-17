@@ -1,7 +1,50 @@
-[gd_scene load_steps=3 format=4 uid="uid://ceywiotc6nx7i"]
+[gd_scene load_steps=13 format=4 uid="uid://ceywiotc6nx7i"]
 
 [ext_resource type="TileSet" uid="uid://cj7bg3t0y2mnl" path="res://Resources/temp_tileset.tres" id="1_twne6"]
 [ext_resource type="PackedScene" uid="uid://c486y12tqawhf" path="res://Scenes/player.tscn" id="2_gldfn"]
+[ext_resource type="PackedScene" uid="uid://b0pf1mqiv2cxe" path="res://Scenes/key.tscn" id="3_fgj4c"]
+[ext_resource type="Script" path="res://Scripts/Key/key_lock.gd" id="4_hdrdm"]
+[ext_resource type="Texture2D" uid="uid://b35aau1unv3ca" path="res://Art/cavesofgallet_tiles.png" id="5_mpkud"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="6_gsbig"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bxwrs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lghsp"]
+atlas = ExtResource("5_mpkud")
+region = Rect2(40, 16, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ljy45"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lghsp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4pu8"]
+atlas = ExtResource("5_mpkud")
+region = Rect2(32, 72, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2j6q"]
+atlas = ExtResource("5_mpkud")
+region = Rect2(32, 80, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhtiu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4pu8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2j6q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="TestScene" type="Node2D"]
 
@@ -15,3 +58,27 @@ tile_map_data = PackedByteArray("AAD+////AAABAAEAAAD6////AAABAAEAAAD7////AAABAAE
 tile_set = ExtResource("1_twne6")
 
 [node name="Player" parent="." instance=ExtResource("2_gldfn")]
+
+[node name="Key" parent="." instance=ExtResource("3_fgj4c")]
+position = Vector2(-52, -21)
+scale = Vector2(1, 1)
+
+[node name="KeyLock" type="Node2D" parent="."]
+position = Vector2(95, -20)
+script = ExtResource("4_hdrdm")
+
+[node name="Area2D" type="Area2D" parent="KeyLock"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KeyLock/Area2D"]
+shape = SubResource("CircleShape2D_bxwrs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="KeyLock"]
+sprite_frames = SubResource("SpriteFrames_ljy45")
+
+[node name="Door" type="Node2D" parent="." node_paths=PackedStringArray("locks")]
+position = Vector2(68, -15)
+script = ExtResource("6_gsbig")
+locks = [NodePath("../KeyLock")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Door"]
+sprite_frames = SubResource("SpriteFrames_bhtiu")

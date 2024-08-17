@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://be7lrdvf3syhw"]
+
+[ext_resource type="Script" path="res://Scripts/Key/key_lock.gd" id="1_tlw2d"]
+[ext_resource type="Texture2D" uid="uid://b35aau1unv3ca" path="res://Art/cavesofgallet_tiles.png" id="2_ys2dd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bxwrs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lghsp"]
+atlas = ExtResource("2_ys2dd")
+region = Rect2(40, 16, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ljy45"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lghsp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="KeyLock" type="Node2D"]
+position = Vector2(95, -20)
+script = ExtResource("1_tlw2d")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_bxwrs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ljy45")

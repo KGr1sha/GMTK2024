@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://c486y12tqawhf"]
+[gd_scene load_steps=22 format=3 uid="uid://c486y12tqawhf"]
 
 [ext_resource type="Script" path="res://Scripts/player_move.gd" id="1_dpq31"]
 [ext_resource type="Texture2D" uid="uid://ct2abnecvpkj5" path="res://Art/Characters/satiro-Sheet v1.1.png" id="2_bksbk"]
 [ext_resource type="Script" path="res://Scripts/Scale/scaler.gd" id="3_7kewy"]
 [ext_resource type="Script" path="res://Scripts/Scale/scale_settings.gd" id="4_ohq31"]
+[ext_resource type="Script" path="res://Scripts/Key/key_collecter.gd" id="5_72xwt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_550f6"]
 atlas = ExtResource("2_bksbk")
@@ -169,3 +170,6 @@ camera_zoom = 8.0
 player_scale = 2.0
 jump_strength = 2.0
 move_speed = 2.0
+
+[node name="KeyCollecter" type="Node2D" parent="."]
+script = ExtResource("5_72xwt")

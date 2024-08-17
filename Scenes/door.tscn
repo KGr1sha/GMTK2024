@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://43oo54ksomj2"]
+
+[ext_resource type="Script" path="res://Scripts/door.gd" id="1_wel0b"]
+[ext_resource type="Texture2D" uid="uid://b35aau1unv3ca" path="res://Art/cavesofgallet_tiles.png" id="2_7wnk3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4pu8"]
+atlas = ExtResource("2_7wnk3")
+region = Rect2(32, 72, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2j6q"]
+atlas = ExtResource("2_7wnk3")
+region = Rect2(32, 80, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhtiu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4pu8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2j6q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Door" type="Node2D" node_paths=PackedStringArray("locks")]
+position = Vector2(68, -15)
+script = ExtResource("1_wel0b")
+locks = [NodePath("")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bhtiu")
