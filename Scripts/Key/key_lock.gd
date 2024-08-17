@@ -20,7 +20,7 @@ func _process(_delta: float) -> void:
 
 func _on_enter(other : Node2D) -> void:
 	var collecter : KeyCollecter = other.get_node("KeyCollecter")
-	if collecter.current_keys > 0:
+	if collecter != null and collecter.current_keys > 0:
 		can_open = true
 
 
