@@ -18,6 +18,7 @@ tile_map_data = PackedByteArray("AAD+////AAABAAEAAAD6////AAABAAEAAAD7////AAABAAE
 tile_set = ExtResource("1_twne6")
 
 [node name="Player" parent="." instance=ExtResource("2_gldfn")]
+position = Vector2(-14, -25)
 
 [node name="Key" parent="." instance=ExtResource("3_fgj4c")]
 position = Vector2(-52, -21)
@@ -25,4 +26,5 @@ scale = Vector2(1, 1)
 
 [node name="KeyLock" parent="." instance=ExtResource("4_j624b")]
 
-[node name="Door" parent="." instance=ExtResource("5_8t2pg")]
+[node name="Door" parent="." node_paths=PackedStringArray("locks") instance=ExtResource("5_8t2pg")]
+locks = [NodePath("../KeyLock")]

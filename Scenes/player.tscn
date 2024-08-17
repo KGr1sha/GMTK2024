@@ -1,10 +1,13 @@
-[gd_scene load_steps=22 format=3 uid="uid://c486y12tqawhf"]
+[gd_scene load_steps=25 format=3 uid="uid://c486y12tqawhf"]
 
 [ext_resource type="Script" path="res://Scripts/player_move.gd" id="1_dpq31"]
 [ext_resource type="Texture2D" uid="uid://ct2abnecvpkj5" path="res://Art/Characters/satiro-Sheet v1.1.png" id="2_bksbk"]
 [ext_resource type="Script" path="res://Scripts/Scale/scaler.gd" id="3_7kewy"]
 [ext_resource type="Script" path="res://Scripts/Scale/scale_settings.gd" id="4_ohq31"]
 [ext_resource type="Script" path="res://Scripts/Key/key_collecter.gd" id="5_72xwt"]
+[ext_resource type="Script" path="res://Scripts/FSM/fsm.gd" id="6_hi7jq"]
+[ext_resource type="Script" path="res://Scripts/Player/Animations/idle_anim.gd" id="7_g4i1j"]
+[ext_resource type="Script" path="res://Scripts/Player/Animations/run_anim.gd" id="8_d5cf5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_550f6"]
 atlas = ExtResource("2_bksbk")
@@ -84,7 +87,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_jwunw")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -121,15 +124,14 @@ animations = [{
 size = Vector2(11, 15)
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(-25, -27)
+position = Vector2(0, -11)
 script = ExtResource("1_dpq31")
 cyotee_jump_window = 0.1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s4gcj")
-animation = &"run"
-autoplay = "default"
-frame_progress = 0.648399
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, 3.5)
@@ -173,3 +175,16 @@ move_speed = 2.0
 
 [node name="KeyCollecter" type="Node2D" parent="."]
 script = ExtResource("5_72xwt")
+
+[node name="Animator" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("6_hi7jq")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node2D" parent="Animator" node_paths=PackedStringArray("animated_sprite")]
+script = ExtResource("7_g4i1j")
+animated_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="Run" type="Node2D" parent="Animator" node_paths=PackedStringArray("animated_sprite", "player_root")]
+script = ExtResource("8_d5cf5")
+animated_sprite = NodePath("../../AnimatedSprite2D")
+player_root = NodePath("../..")
