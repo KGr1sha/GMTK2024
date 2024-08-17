@@ -1,8 +1,10 @@
-[gd_scene load_steps=20 format=4 uid="uid://ceywiotc6nx7i"]
+[gd_scene load_steps=22 format=4 uid="uid://ceywiotc6nx7i"]
 
 [ext_resource type="TileSet" uid="uid://cj7bg3t0y2mnl" path="res://Resources/temp_tileset.tres" id="1_twne6"]
 [ext_resource type="Script" path="res://Scripts/character_body_2d.gd" id="2_ihhgd"]
 [ext_resource type="Texture2D" uid="uid://ct2abnecvpkj5" path="res://Art/Characters/satiro-Sheet v1.1.png" id="2_lqp86"]
+[ext_resource type="Script" path="res://Scripts/Scale/scaler.gd" id="4_g3kad"]
+[ext_resource type="Script" path="res://Scripts/Scale/scale_settings.gd" id="5_8ej4o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_550f6"]
 atlas = ExtResource("2_lqp86")
@@ -132,6 +134,7 @@ tile_set = ExtResource("1_twne6")
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(-25, -27)
 script = ExtResource("2_ihhgd")
+cyotee_jump_window = 0.1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 sprite_frames = SubResource("SpriteFrames_s4gcj")
@@ -146,3 +149,35 @@ shape = SubResource("RectangleShape2D_koonx")
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 scale = Vector2(2, 2)
 zoom = Vector2(10, 10)
+
+[node name="Scaler" type="Node2D" parent="CharacterBody2D" node_paths=PackedStringArray("default_scale", "player_root", "camera", "player_movement")]
+script = ExtResource("4_g3kad")
+default_scale = NodePath("Medium")
+player_root = NodePath("..")
+camera = NodePath("../Camera2D")
+player_movement = NodePath("..")
+scale_speed = 1.0
+
+[node name="Small" type="Node2D" parent="CharacterBody2D/Scaler"]
+script = ExtResource("5_8ej4o")
+id = 1
+camera_zoom = 15.0
+player_scale = 0.5
+jump_strength = 0.5
+move_speed = 0.5
+
+[node name="Medium" type="Node2D" parent="CharacterBody2D/Scaler"]
+script = ExtResource("5_8ej4o")
+id = 2
+camera_zoom = 10.0
+player_scale = 1.0
+jump_strength = 1.0
+move_speed = 1.0
+
+[node name="Large" type="Node2D" parent="CharacterBody2D/Scaler"]
+script = ExtResource("5_8ej4o")
+id = 3
+camera_zoom = 8.0
+player_scale = 2.0
+jump_strength = 2.0
+move_speed = 2.0
