@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc0f4wbkkcxjp"
-path="res://.godot/imported/16x16 tilemap1.png-90ddbd318da718d70d09828948cc5d8e.ctex"
+uid="uid://bpsofja4mhqv1"
+path="res://.godot/imported/key-blue.png-a43b3015719f06678727bcf542d33b5e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/16x16 tilemap1.png"
-dest_files=["res://.godot/imported/16x16 tilemap1.png-90ddbd318da718d70d09828948cc5d8e.ctex"]
+source_file="res://Art/Environment/key-blue.png"
+dest_files=["res://.godot/imported/key-blue.png-a43b3015719f06678727bcf542d33b5e.ctex"]
 
 [params]
 

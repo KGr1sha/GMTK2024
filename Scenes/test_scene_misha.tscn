@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c486y12tqawhf" path="res://Scenes/player.tscn" id="2_frxo4"]
 [ext_resource type="PackedScene" uid="uid://b0pf1mqiv2cxe" path="res://Scenes/Level/key.tscn" id="3_pfvlb"]
 [ext_resource type="Script" path="res://Scripts/Key/key_lock.gd" id="4_roprc"]
-[ext_resource type="Texture2D" uid="uid://b35aau1unv3ca" path="res://Art/cavesofgallet_tiles.png" id="5_gltra"]
+[ext_resource type="Texture2D" uid="uid://b35aau1unv3ca" path="res://Art/Environment/cavesofgallet_tiles.png" id="5_gltra"]
 [ext_resource type="Script" path="res://Scripts/door.gd" id="6_3dm87"]
 [ext_resource type="Texture2D" uid="uid://d3bq5o0kwn8qr" path="res://Art/Characters/companion-Sheet v1.01.png" id="8_70erw"]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://b0pf1mqiv2cxe"]
 
 [ext_resource type="Script" path="res://Scripts/Key/key.gd" id="1_d8o6t"]
-[ext_resource type="Texture2D" uid="uid://bpsofja4mhqv1" path="res://Art/key-blue.png" id="2_88ne0"]
+[ext_resource type="Texture2D" uid="uid://bpsofja4mhqv1" path="res://Art/Environment/key-blue.png" id="2_88ne0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j0x0t"]
 

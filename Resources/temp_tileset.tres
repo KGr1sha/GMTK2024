@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=5 format=3 uid="uid://cj7bg3t0y2mnl"]
 
-[ext_resource type="Texture2D" uid="uid://b35aau1unv3ca" path="res://Art/cavesofgallet_tiles.png" id="1_fqq73"]
-[ext_resource type="Texture2D" uid="uid://dc0f4wbkkcxjp" path="res://Art/16x16 tilemap1.png" id="2_gx6ub"]
+[ext_resource type="Texture2D" uid="uid://b35aau1unv3ca" path="res://Art/Environment/cavesofgallet_tiles.png" id="1_fqq73"]
+[ext_resource type="Texture2D" uid="uid://dc0f4wbkkcxjp" path="res://Art/Environment/16x16 tilemap1.png" id="2_gx6ub"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gfiaa"]
 texture = ExtResource("1_fqq73")

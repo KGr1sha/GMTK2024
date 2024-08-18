@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bn20aluh8tesa"]
+
+[ext_resource type="Script" path="res://Scripts/lever.gd" id="1_ga7bm"]
+[ext_resource type="Texture2D" uid="uid://b35aau1unv3ca" path="res://Art/Environment/cavesofgallet_tiles.png" id="2_028hv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kkmni"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4h4l"]
+atlas = ExtResource("2_028hv")
+region = Rect2(48, 80, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i28e3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4h4l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Lever" type="Node2D"]
+position = Vector2(33, -40)
+script = ExtResource("1_ga7bm")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_kkmni")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_i28e3")

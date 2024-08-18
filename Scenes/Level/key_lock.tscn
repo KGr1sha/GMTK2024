@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://be7lrdvf3syhw"]
 
 [ext_resource type="Script" path="res://Scripts/Key/key_lock.gd" id="1_tlw2d"]
-[ext_resource type="Texture2D" uid="uid://b35aau1unv3ca" path="res://Art/cavesofgallet_tiles.png" id="2_ys2dd"]
+[ext_resource type="Texture2D" uid="uid://b35aau1unv3ca" path="res://Art/Environment/cavesofgallet_tiles.png" id="2_ys2dd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bxwrs"]
 

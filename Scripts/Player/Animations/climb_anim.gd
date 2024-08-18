@@ -39,5 +39,3 @@ func play():
 			animated_sprite.play()
 		else:
 			animated_sprite.play_backwards()
-
-

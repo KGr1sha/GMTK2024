@@ -31,8 +31,7 @@ func process(delta: float) -> void:
 		and horizontal_input == 0:
 		fsm.change_state("ClimbState")
 
-
-	if not want_to_jump:
+	if want_to_jump:
 		cyotee_timer -= delta
 
 	if cyotee_timer <= 0:
