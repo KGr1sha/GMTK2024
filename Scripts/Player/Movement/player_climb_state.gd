@@ -25,4 +25,3 @@ func process(_delta : float) -> void:
 func physics_process(_delta: float) -> void:
 	body.velocity.y = vertical_input * climb_speed
 	body.move_and_slide()
-
