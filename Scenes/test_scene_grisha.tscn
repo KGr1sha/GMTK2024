@@ -1,13 +1,36 @@
-[gd_scene load_steps=7 format=4 uid="uid://ceywiotc6nx7i"]
+[gd_scene load_steps=13 format=4 uid="uid://ceywiotc6nx7i"]
 
 [ext_resource type="TileSet" uid="uid://cj7bg3t0y2mnl" path="res://Resources/temp_tileset.tres" id="1_twne6"]
 [ext_resource type="PackedScene" uid="uid://c486y12tqawhf" path="res://Scenes/player.tscn" id="2_gldfn"]
-[ext_resource type="PackedScene" uid="uid://b0pf1mqiv2cxe" path="res://Scenes/key.tscn" id="3_fgj4c"]
-[ext_resource type="PackedScene" uid="uid://be7lrdvf3syhw" path="res://Scenes/key_lock.tscn" id="4_j624b"]
-[ext_resource type="PackedScene" uid="uid://43oo54ksomj2" path="res://Scenes/door.tscn" id="5_8t2pg"]
+[ext_resource type="PackedScene" uid="uid://b0pf1mqiv2cxe" path="res://Scenes/Level/key.tscn" id="3_fgj4c"]
+[ext_resource type="PackedScene" uid="uid://be7lrdvf3syhw" path="res://Scenes/Level/key_lock.tscn" id="4_j624b"]
+[ext_resource type="PackedScene" uid="uid://43oo54ksomj2" path="res://Scenes/Level/door.tscn" id="5_8t2pg"]
+[ext_resource type="PackedScene" uid="uid://cou5kd7d64mwb" path="res://Scenes/Level/ladder.tscn" id="6_lxxe0"]
+[ext_resource type="PackedScene" uid="uid://cyi48bfpf5o0n" path="res://Scenes/Level/platform.tscn" id="7_ivskv"]
+[ext_resource type="Script" path="res://Scripts/follow.gd" id="8_3vtri"]
+[ext_resource type="Texture2D" uid="uid://ct2abnecvpkj5" path="res://Art/Characters/satiro-Sheet v1.1.png" id="8_y4tj5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_42i1x"]
-size = Vector2(6, 20)
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp1tx"]
+atlas = ExtResource("8_y4tj5")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4u1yv"]
+atlas = ExtResource("8_y4tj5")
+region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ckkcp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qp1tx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4u1yv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="TestScene" type="Node2D"]
 
@@ -33,11 +56,21 @@ scale = Vector2(1, 1)
 position = Vector2(63, -16)
 locks = [NodePath("../KeyLock")]
 
-[node name="Ladder" type="Area2D" parent="."]
-position = Vector2(116, -21)
-collision_layer = 4
-collision_mask = 2
+[node name="Ladder" parent="." instance=ExtResource("6_lxxe0")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder"]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_42i1x")
+[node name="Platform" parent="." instance=ExtResource("7_ivskv")]
+
+[node name="Platform2" parent="." instance=ExtResource("7_ivskv")]
+position = Vector2(103, -32)
+
+[node name="Companion" type="Node2D" parent="." node_paths=PackedStringArray("target")]
+position = Vector2(-37, -42)
+scale = Vector2(0.4, 0.4)
+script = ExtResource("8_3vtri")
+target = NodePath("../Player")
+min_distance = 10.0
+follow_speed = 0.2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Companion"]
+sprite_frames = SubResource("SpriteFrames_ckkcp")
+animation = &"idle"

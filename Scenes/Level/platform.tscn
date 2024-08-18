@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyi48bfpf5o0n"]
+
+[ext_resource type="Script" path="res://Scripts/one_way_platform.gd" id="1_rxg14"]
+[ext_resource type="Texture2D" uid="uid://b3uaj87034p7a" path="res://Art/platform.png" id="2_2hnkl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4cpxb"]
+size = Vector2(32, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3tw1"]
+size = Vector2(32, 1)
+
+[node name="Platform" type="StaticBody2D"]
+position = Vector2(32, -28)
+collision_mask = 2
+script = ExtResource("1_rxg14")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+scale = Vector2(2, 1)
+texture = ExtResource("2_2hnkl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_4cpxb")
+one_way_collision = true
+debug_color = Color(0.549525, 0.53332, 0.511184, 0.42)
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+position = Vector2(0, 1)
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_q3tw1")
