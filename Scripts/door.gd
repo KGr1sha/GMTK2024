@@ -21,4 +21,3 @@ func all_opened() -> bool:
 			return false
 
 	return true
-
