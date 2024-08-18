@@ -11,7 +11,7 @@ func enter() -> void:
 	animated_sprite.play("run")
 
 
-func _process(_delta: float) -> void:
+func process(_delta: float) -> void:
 	horizontal_input = Input.get_axis("MoveLeft", "MoveRight")
 
 	if horizontal_input == 0.0:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://c486y12tqawhf"]
+[gd_scene load_steps=37 format=3 uid="uid://c486y12tqawhf"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Movement/player_move_state.gd" id="1_7qewy"]
 [ext_resource type="Texture2D" uid="uid://ck5nt5qj4e1gh" path="res://Art/Characters/girl v1.1-sheet.png" id="1_h1vmr"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Scripts/Player/Animations/idle_anim.gd" id="7_g4i1j"]
 [ext_resource type="Script" path="res://Scripts/Player/Animations/run_anim.gd" id="8_d5cf5"]
 [ext_resource type="Script" path="res://Scripts/Player/ladder_check.gd" id="9_sxq6s"]
+[ext_resource type="Script" path="res://Scripts/Player/Animations/climb_anim.gd" id="10_6nd1w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yo1ft"]
 atlas = ExtResource("1_h1vmr")
@@ -279,7 +280,9 @@ script = ExtResource("8_d5cf5")
 animated_sprite = NodePath("../../AnimatedSprite2D")
 player_root = NodePath("../..")
 
-[node name="Climb" type="Node2D" parent="Animator"]
+[node name="Climb" type="Node2D" parent="Animator" node_paths=PackedStringArray("animated_sprite")]
+script = ExtResource("10_6nd1w")
+animated_sprite = NodePath("../../AnimatedSprite2D")
 
 [node name="LadderCheck" type="Area2D" parent="."]
 collision_layer = 2

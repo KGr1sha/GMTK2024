@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://ceywiotc6nx7i"]
+[gd_scene load_steps=14 format=4 uid="uid://ceywiotc6nx7i"]
 
 [ext_resource type="TileSet" uid="uid://cj7bg3t0y2mnl" path="res://Resources/temp_tileset.tres" id="1_twne6"]
 [ext_resource type="PackedScene" uid="uid://c486y12tqawhf" path="res://Scenes/player.tscn" id="2_gldfn"]
@@ -7,132 +7,25 @@
 [ext_resource type="PackedScene" uid="uid://43oo54ksomj2" path="res://Scenes/Level/door.tscn" id="5_8t2pg"]
 [ext_resource type="PackedScene" uid="uid://cou5kd7d64mwb" path="res://Scenes/Level/ladder.tscn" id="6_lxxe0"]
 [ext_resource type="PackedScene" uid="uid://cyi48bfpf5o0n" path="res://Scenes/Level/platform.tscn" id="7_ivskv"]
-[ext_resource type="Script" path="res://Scripts/follow.gd" id="8_3vtri"]
-[ext_resource type="Texture2D" uid="uid://d3bq5o0kwn8qr" path="res://Art/Characters/companion-Sheet v1.01.png" id="9_bhyaj"]
+[ext_resource type="PackedScene" uid="uid://biutssqy4fstl" path="res://Scenes/companion.tscn" id="8_okr5b"]
+[ext_resource type="Script" path="res://Scripts/lever.gd" id="9_2lvph"]
+[ext_resource type="Texture2D" uid="uid://b35aau1unv3ca" path="res://Art/cavesofgallet_tiles.png" id="9_8jfng"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6ujna"]
-atlas = ExtResource("9_bhyaj")
-region = Rect2(0, 16, 16, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_kkmni"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ky6is"]
-atlas = ExtResource("9_bhyaj")
-region = Rect2(16, 16, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4h4l"]
+atlas = ExtResource("9_8jfng")
+region = Rect2(48, 80, 8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nkshx"]
-atlas = ExtResource("9_bhyaj")
-region = Rect2(32, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6n4qd"]
-atlas = ExtResource("9_bhyaj")
-region = Rect2(48, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hqs1i"]
-atlas = ExtResource("9_bhyaj")
-region = Rect2(64, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oujck"]
-atlas = ExtResource("9_bhyaj")
-region = Rect2(80, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a8lfi"]
-atlas = ExtResource("9_bhyaj")
-region = Rect2(96, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dr0q1"]
-atlas = ExtResource("9_bhyaj")
-region = Rect2(112, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7fopb"]
-atlas = ExtResource("9_bhyaj")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h3mxq"]
-atlas = ExtResource("9_bhyaj")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5j0wd"]
-atlas = ExtResource("9_bhyaj")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_adohl"]
-atlas = ExtResource("9_bhyaj")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p10nc"]
-atlas = ExtResource("9_bhyaj")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hdh6r"]
-atlas = ExtResource("9_bhyaj")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_46fkh"]
-atlas = ExtResource("9_bhyaj")
-region = Rect2(96, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_882i4"]
-atlas = ExtResource("9_bhyaj")
-region = Rect2(112, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ckkcp"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_i28e3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6ujna")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ky6is")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nkshx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6n4qd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hqs1i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oujck")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a8lfi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dr0q1")
+"texture": SubResource("AtlasTexture_j4h4l")
 }],
 "loop": true,
-"name": &"follow",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7fopb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h3mxq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5j0wd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_adohl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p10nc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hdh6r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_46fkh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_882i4")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 7.0
+"name": &"default",
+"speed": 5.0
 }]
 
 [node name="TestScene" type="Node2D"]
@@ -157,7 +50,7 @@ scale = Vector2(1, 1)
 
 [node name="Door" parent="." node_paths=PackedStringArray("locks") instance=ExtResource("5_8t2pg")]
 position = Vector2(63, -16)
-locks = [NodePath("../KeyLock")]
+locks = [NodePath("../Lever"), NodePath("../KeyLock")]
 
 [node name="Ladder" parent="." instance=ExtResource("6_lxxe0")]
 
@@ -166,16 +59,19 @@ locks = [NodePath("../KeyLock")]
 [node name="Platform2" parent="." instance=ExtResource("7_ivskv")]
 position = Vector2(103, -32)
 
-[node name="Companion" type="Node2D" parent="." node_paths=PackedStringArray("target")]
-position = Vector2(-37, -42)
-scale = Vector2(0.75, 0.75)
-script = ExtResource("8_3vtri")
+[node name="Companion" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_okr5b")]
 target = NodePath("../Player")
-min_distance = 10.0
-follow_speed = 0.2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Companion"]
-sprite_frames = SubResource("SpriteFrames_ckkcp")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.513867
+[node name="Lever" type="Node2D" parent="."]
+position = Vector2(33, -40)
+script = ExtResource("9_2lvph")
+
+[node name="Area2D" type="Area2D" parent="Lever"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever/Area2D"]
+shape = SubResource("CircleShape2D_kkmni")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Lever"]
+sprite_frames = SubResource("SpriteFrames_i28e3")

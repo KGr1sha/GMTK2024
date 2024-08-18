@@ -17,8 +17,9 @@ func process(_delta : float) -> void:
 	vertical_input = Input.get_axis("Climb", "Drop")
 	horizontal_input = Input.get_axis("MoveLeft", "MoveRight")
 	if Input.is_action_just_pressed("Jump")\
-		or horizontal_input != 0\
-		or not ladder_check.is_on_ladder:
+	or horizontal_input != 0\
+	or not ladder_check.is_on_ladder\
+	or body.is_on_floor():
 		fsm.change_state("MoveState")
 
 

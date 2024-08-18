@@ -17,5 +17,3 @@ func _physics_process(delta: float) -> void:
 
 	t += delta * 0.01
 	position = position.lerp(target.position - to_target.normalized() * min_distance, t)
-
-
