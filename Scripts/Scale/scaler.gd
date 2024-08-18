@@ -1,10 +1,11 @@
 class_name Scaler
 extends Node
 
+
 @export var default_scale : ScaleSettings
 @export var player_root : CharacterBody2D
 @export var camera : Camera2D
-@export var player_movement : PlayerMovement
+@export var player_movement : PlayerMoveState
 @export var scale_speed : float
 
 var scales : Dictionary #key - scale id; value - ScaleSettings
@@ -18,10 +19,6 @@ var is_scaling : bool
 
 func _ready() -> void:
 	initialize_scales()
-
-	if player_movement == null:
-		player_movement = player_root as PlayerMovement
-	
 	is_scaling = false
 
 
@@ -69,6 +66,3 @@ func try_set_scale(new_scale_id : int) -> bool:
 	player_movement.speed_scale = new_scale.move_speed
 	player_movement.jump_scale = new_scale.jump_strength
 	return true
-
-func interpolate_to_new_scale() -> void:
-	pass

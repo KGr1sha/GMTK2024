@@ -102,6 +102,8 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("1_d8o6t")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_j0x0t")

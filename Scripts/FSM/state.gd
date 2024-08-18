@@ -13,6 +13,9 @@ func exit():
 	pass
 
 
-func _process(_delta: float):
+func process(_delta : float):
 	pass
 
+
+func physics_process(_delta: float) -> void:
+	pass

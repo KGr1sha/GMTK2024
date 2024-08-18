@@ -16,6 +16,16 @@ func _ready() -> void:
 	change_state(initial_state.name)
 
 
+func _process(delta: float) -> void:
+	if current_state != null:
+		current_state.process(delta)
+
+
+func _physics_process(delta: float) -> void:
+	if current_state != null:
+		current_state.physics_process(delta)
+
+
 func change_state(new_state_name: String) -> void:
 	var new_state = states[new_state_name]
 	
@@ -25,4 +35,3 @@ func change_state(new_state_name: String) -> void:
 	new_state.enter()
 	
 	current_state = new_state
-

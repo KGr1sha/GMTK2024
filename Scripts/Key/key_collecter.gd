@@ -7,4 +7,3 @@ var current_keys : int
 
 func give_key() -> void:
 	current_keys += 1
-	print(current_keys)
