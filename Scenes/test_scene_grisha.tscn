@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=4 uid="uid://ceywiotc6nx7i"]
 
 [ext_resource type="TileSet" uid="uid://cj7bg3t0y2mnl" path="res://Resources/temp_tileset.tres" id="1_twne6"]
-[ext_resource type="PackedScene" uid="uid://c486y12tqawhf" path="res://Scenes/player.tscn" id="2_gldfn"]
-[ext_resource type="PackedScene" uid="uid://b0pf1mqiv2cxe" path="res://Scenes/key.tscn" id="3_fgj4c"]
-[ext_resource type="PackedScene" uid="uid://be7lrdvf3syhw" path="res://Scenes/key_lock.tscn" id="4_j624b"]
-[ext_resource type="PackedScene" uid="uid://43oo54ksomj2" path="res://Scenes/door.tscn" id="5_8t2pg"]
+[ext_resource type="PackedScene" uid="uid://rn05812chugq" path="res://Scenes/player.tscn" id="2_gldfn"]
+[ext_resource type="PackedScene" path="res://Scenes/key.tscn" id="3_fgj4c"]
+[ext_resource type="PackedScene" path="res://Scenes/key_lock.tscn" id="4_j624b"]
+[ext_resource type="PackedScene" path="res://Scenes/door.tscn" id="5_8t2pg"]
 
 [node name="TestScene" type="Node2D"]
 
