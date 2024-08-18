@@ -171,7 +171,7 @@ scale_speed = 0.5
 [node name="Small" type="Node2D" parent="Scaler"]
 script = ExtResource("4_ohq31")
 id = 1
-camera_zoom = 15.0
+camera_zoom = 12.0
 player_scale = 0.5
 jump_strength = 0.5
 move_speed = 0.5
@@ -179,7 +179,7 @@ move_speed = 0.5
 [node name="Medium" type="Node2D" parent="Scaler"]
 script = ExtResource("4_ohq31")
 id = 2
-camera_zoom = 10.0
+camera_zoom = 6.0
 player_scale = 1.0
 jump_strength = 1.0
 move_speed = 2.0
@@ -187,7 +187,7 @@ move_speed = 2.0
 [node name="Large" type="Node2D" parent="Scaler"]
 script = ExtResource("4_ohq31")
 id = 3
-camera_zoom = 8.0
+camera_zoom = 3.0
 player_scale = 2.0
 jump_strength = 2.0
 move_speed = 2.0
