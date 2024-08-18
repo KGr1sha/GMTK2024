@@ -181,7 +181,7 @@ id = 2
 camera_zoom = 10.0
 player_scale = 1.0
 jump_strength = 1.0
-move_speed = 1.0
+move_speed = 2.0
 
 [node name="Large" type="Node2D" parent="Scaler"]
 script = ExtResource("4_ohq31")
