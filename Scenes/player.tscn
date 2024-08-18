@@ -138,8 +138,9 @@ sprite_frames = SubResource("SpriteFrames_s4gcj")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="MovementController" type="Node2D" parent="."]
+[node name="MovementController" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("6_hi7jq")
+initial_state = NodePath("MoveState")
 
 [node name="MoveState" type="Node2D" parent="MovementController" node_paths=PackedStringArray("body")]
 script = ExtResource("1_7qewy")

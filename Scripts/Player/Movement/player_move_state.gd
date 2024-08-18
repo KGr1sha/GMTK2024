@@ -23,11 +23,14 @@ func _ready() -> void:
 
 
 func process(delta: float) -> void:
-	if ladder_check.is_on_ladder and Input.is_action_pressed("Climb"):
-		fsm.change_state("ClimbState")
-
 	horizontal_input = Input.get_axis("MoveLeft", "MoveRight")
 	want_to_jump = want_to_jump or Input.is_action_just_pressed("Jump")
+
+	if ladder_check.is_on_ladder\
+		and Input.is_action_pressed("Climb")\
+		and horizontal_input == 0:
+		fsm.change_state("ClimbState")
+
 
 	if not want_to_jump:
 		cyotee_timer -= delta

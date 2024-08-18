@@ -1,13 +1,19 @@
-[gd_scene load_steps=7 format=4 uid="uid://ceywiotc6nx7i"]
+[gd_scene load_steps=11 format=4 uid="uid://ceywiotc6nx7i"]
 
 [ext_resource type="TileSet" uid="uid://cj7bg3t0y2mnl" path="res://Resources/temp_tileset.tres" id="1_twne6"]
 [ext_resource type="PackedScene" uid="uid://c486y12tqawhf" path="res://Scenes/player.tscn" id="2_gldfn"]
-[ext_resource type="PackedScene" uid="uid://b0pf1mqiv2cxe" path="res://Scenes/key.tscn" id="3_fgj4c"]
-[ext_resource type="PackedScene" uid="uid://be7lrdvf3syhw" path="res://Scenes/key_lock.tscn" id="4_j624b"]
-[ext_resource type="PackedScene" uid="uid://43oo54ksomj2" path="res://Scenes/door.tscn" id="5_8t2pg"]
+[ext_resource type="PackedScene" uid="uid://b0pf1mqiv2cxe" path="res://Scenes/Level/key.tscn" id="3_fgj4c"]
+[ext_resource type="PackedScene" uid="uid://be7lrdvf3syhw" path="res://Scenes/Level/key_lock.tscn" id="4_j624b"]
+[ext_resource type="PackedScene" uid="uid://43oo54ksomj2" path="res://Scenes/Level/door.tscn" id="5_8t2pg"]
+[ext_resource type="PackedScene" uid="uid://cou5kd7d64mwb" path="res://Scenes/Level/ladder.tscn" id="6_lxxe0"]
+[ext_resource type="Script" path="res://Scripts/one_way_platform.gd" id="7_31ql7"]
+[ext_resource type="Texture2D" uid="uid://b3uaj87034p7a" path="res://Art/platform.png" id="7_oxo1e"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_42i1x"]
-size = Vector2(6, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4cpxb"]
+size = Vector2(32, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3tw1"]
+size = Vector2(32, 1)
 
 [node name="TestScene" type="Node2D"]
 
@@ -33,11 +39,52 @@ scale = Vector2(1, 1)
 position = Vector2(63, -16)
 locks = [NodePath("../KeyLock")]
 
-[node name="Ladder" type="Area2D" parent="."]
-position = Vector2(116, -21)
-collision_layer = 4
+[node name="Ladder" parent="." instance=ExtResource("6_lxxe0")]
+
+[node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2(32, -28)
+collision_mask = 2
+script = ExtResource("7_31ql7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform"]
+texture_repeat = 2
+scale = Vector2(2, 1)
+texture = ExtResource("7_oxo1e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_4cpxb")
+one_way_collision = true
+
+[node name="PlayerDetector" type="Area2D" parent="Platform"]
+position = Vector2(0, 1)
+collision_layer = 16
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform/PlayerDetector"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_q3tw1")
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2(109, -32)
+collision_mask = 2
+script = ExtResource("7_31ql7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform2"]
+texture_repeat = 2
+scale = Vector2(2, 1)
+texture = ExtResource("7_oxo1e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_4cpxb")
+one_way_collision = true
+
+[node name="PlayerDetector" type="Area2D" parent="Platform2"]
 position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_42i1x")
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2/PlayerDetector"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_q3tw1")
