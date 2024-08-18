@@ -57,4 +57,3 @@ func physics_process(delta: float) -> void:
 		body.velocity.x = move_toward(body.velocity.x, 0, SPEED * speed_scale)
 
 	body.move_and_slide()
-
