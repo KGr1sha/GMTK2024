@@ -1,8 +1,7 @@
-[gd_scene load_steps=29 format=3 uid="uid://c486y12tqawhf"]
+[gd_scene load_steps=28 format=3 uid="uid://c486y12tqawhf"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Movement/player_move_state.gd" id="1_7qewy"]
 [ext_resource type="Texture2D" uid="uid://ct2abnecvpkj5" path="res://Art/Characters/satiro-Sheet v1.1.png" id="2_bksbk"]
-[ext_resource type="Script" path="res://Scripts/Player/Movement/player_movement.gd" id="2_vx13g"]
 [ext_resource type="Script" path="res://Scripts/Scale/scaler.gd" id="3_7kewy"]
 [ext_resource type="Script" path="res://Scripts/Player/Movement/player_climb_state.gd" id="4_cv3oq"]
 [ext_resource type="Script" path="res://Scripts/Scale/scale_settings.gd" id="4_ohq31"]
@@ -139,9 +138,8 @@ sprite_frames = SubResource("SpriteFrames_s4gcj")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="MovementController" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("2_vx13g")
-initial_state = NodePath("MoveState")
+[node name="MovementController" type="Node2D" parent="."]
+script = ExtResource("6_hi7jq")
 
 [node name="MoveState" type="Node2D" parent="MovementController" node_paths=PackedStringArray("body")]
 script = ExtResource("1_7qewy")
