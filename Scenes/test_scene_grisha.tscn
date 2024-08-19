@@ -68,7 +68,7 @@ position = Vector2(76, -12)
 
 [node name="Door" parent="." node_paths=PackedStringArray("locks") instance=ExtResource("5_8t2pg")]
 position = Vector2(44, -8)
-locks = [NodePath("../Lever"), NodePath("../KeyLock")]
+locks = [NodePath("../Lever"), NodePath("../KeyLock"), NodePath("../Button")]
 
 [node name="Ladder" parent="." instance=ExtResource("6_lxxe0")]
 position = Vector2(97, -13)

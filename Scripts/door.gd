@@ -15,7 +15,8 @@ func _ready() -> void:
 
 
 func try_open() -> void:
-	if is_opened:
+	if is_opened and not all_opened():
+		animated_sprite.play("open", -1, true)
 		return
 
 	if all_opened():
