@@ -16,12 +16,13 @@ func enter() -> void:
 
 
 func process(_delta: float) -> void:
-	if Input.get_axis("MoveLeft", "MoveRight")\
+	vertical_input = Input.get_axis("Climb", "Drop")
+
+	if (Input.get_axis("MoveLeft", "MoveRight") and not vertical_input)\
 	or Input.is_action_just_pressed("Jump")\
 	or body.is_on_floor():
 		fsm.change_state("Run")
 	
-	vertical_input = Input.get_axis("Climb", "Drop")
 	if vertical_input == 0:
 		pause()
 	else:

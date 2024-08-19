@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=4 uid="uid://cxxv006h1xsa4"]
+
+[ext_resource type="TileSet" uid="uid://cj7bg3t0y2mnl" path="res://Resources/temp_tileset.tres" id="1_nt24b"]
+[ext_resource type="FontFile" uid="uid://be4pqk0s8tlqv" path="res://Resources/Fonts/at01.ttf" id="2_rdx30"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD6/wIAAQABAAQAAAD7/wIAAQABAAQAAAD8/wIAAQABAAQAAAD9/wIAAQABAAQAAAD+/wIAAQABAAQAAAD//wIAAQABAAQAAAAAAAIAAQABAAQAAAABAAIAAQABAAQAAAACAAIAAQABAAQAAAADAAIAAQABAAQAAAAEAAIAAQABAAQAAAAFAAIAAQABAAQAAAAGAAIAAQABAAQAAAAHAAIAAQABAAQAAAA=")
+tile_set = ExtResource("1_nt24b")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MainMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MainMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MainMenu/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 500
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 125
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rdx30")
+theme_override_font_sizes/font_size = 100
+text = "PLAY"
+flat = true
+alignment = 0
+
+[node name="SettingsButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rdx30")
+theme_override_font_sizes/font_size = 100
+text = "SETTINGS"
+flat = true
+alignment = 0
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rdx30")
+theme_override_font_sizes/font_size = 100
+text = "QUIT"
+flat = true
+alignment = 0
