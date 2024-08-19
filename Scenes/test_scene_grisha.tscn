@@ -13,7 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://nwatcas3g6fb" path="res://Scenes/Level/button.tscn" id="11_y0lyn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ydpqy"]
-friction = 0.0
+rough = true
+absorbent = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nrdbs"]
 radius = 16.0
@@ -62,10 +63,12 @@ position = Vector2(14, -32)
 
 [node name="Rock" type="RigidBody2D" parent="."]
 position = Vector2(-122, -20)
-collision_mask = 3
-mass = 0.001
+collision_layer = 16
+collision_mask = 33
+mass = 1000.0
 physics_material_override = SubResource("PhysicsMaterial_ydpqy")
-inertia = 1000.0
+angular_damp_mode = 1
+angular_damp = 2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Rock"]
 scale = Vector2(0.6, 0.6)

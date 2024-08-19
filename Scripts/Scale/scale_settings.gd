@@ -6,3 +6,4 @@ extends Node
 @export var player_scale : float
 @export var jump_strength : float
 @export var move_speed : float
+@export var can_push : bool

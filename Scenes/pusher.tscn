@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv07dl4ew3qor"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cf25i"]
+radius = 2.0
+height = 20.0
+
+[node name="Pusher" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 4)
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_cf25i")
+debug_color = Color(0.564706, 0.545098, 0.360784, 0.101961)
+
+[node name="PushDetector" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PushDetector"]
+position = Vector2(0, 4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_cf25i")
+debug_color = Color(0.564706, 0.545098, 0.360784, 0.101961)

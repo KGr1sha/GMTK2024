@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://c486y12tqawhf"]
+[gd_scene load_steps=46 format=3 uid="uid://c486y12tqawhf"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Movement/player_move_state.gd" id="1_7qewy"]
 [ext_resource type="Texture2D" uid="uid://ck5nt5qj4e1gh" path="res://Art/Characters/girl v1.1-sheet.png" id="1_h1vmr"]
@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://cygl7x8ce4obe" path="res://Resources/light/player_light3.png" id="15_ji2c4"]
 [ext_resource type="Texture2D" uid="uid://ckwmkju0m1hed" path="res://Resources/light/player_light4.png" id="16_osj2t"]
 [ext_resource type="Texture2D" uid="uid://cg7qink06fsdd" path="res://Resources/light/player_light5.png" id="17_0ewou"]
+[ext_resource type="PackedScene" uid="uid://bv07dl4ew3qor" path="res://Scenes/pusher.tscn" id="18_edboj"]
+[ext_resource type="Script" path="res://Scripts/Player/pusher.gd" id="19_xhi43"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yo1ft"]
 atlas = ExtResource("1_h1vmr")
@@ -211,6 +213,7 @@ size = Vector2(2.5, 14)
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -11)
 collision_layer = 2
+collision_mask = 17
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, 3)
@@ -273,6 +276,7 @@ camera_zoom = 3.0
 player_scale = 2.0
 jump_strength = 2.0
 move_speed = 2.0
+can_push = true
 
 [node name="KeyCollecter" type="Node2D" parent="."]
 script = ExtResource("5_72xwt")
@@ -310,4 +314,11 @@ frames = Array[CompressedTexture2D]([ExtResource("13_gihde"), ExtResource("14_5j
 wait_time = 0.2
 autostart = true
 
+[node name="Pusher" parent="." node_paths=PackedStringArray("move_state", "scaler") instance=ExtResource("18_edboj")]
+script = ExtResource("19_xhi43")
+move_state = NodePath("../MovementController/MoveState")
+scaler = NodePath("../Scaler")
+
 [connection signal="timeout" from="PointLight2D/Timer" to="PointLight2D" method="_on_timer_timeout"]
+
+[editable path="Pusher"]
