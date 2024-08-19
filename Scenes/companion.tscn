@@ -1,7 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://biutssqy4fstl"]
+[gd_scene load_steps=27 format=3 uid="uid://biutssqy4fstl"]
 
 [ext_resource type="Script" path="res://Scripts/follow.gd" id="1_6inix"]
 [ext_resource type="Texture2D" uid="uid://d3bq5o0kwn8qr" path="res://Art/Characters/companion-Sheet v1.01.png" id="2_87gl5"]
+[ext_resource type="Script" path="res://Scripts/Light/light.gd" id="3_gpcoh"]
+[ext_resource type="Texture2D" uid="uid://ddofwiefqonih" path="res://Resources/light/companionlight1.png" id="4_rjpc5"]
+[ext_resource type="Texture2D" uid="uid://yygpqs1wm5xh" path="res://Resources/light/companionlight2.png" id="5_41lpr"]
+[ext_resource type="Texture2D" uid="uid://n5uf2qm6v6qp" path="res://Resources/light/companionlight3.png" id="6_wjrjb"]
+[ext_resource type="Texture2D" uid="uid://dblccmfg45ed0" path="res://Resources/light/companionlight4.png" id="7_2q6i2"]
+[ext_resource type="Texture2D" uid="uid://cq5gmy5qk1qn0" path="res://Resources/light/companionlight5.png" id="8_4rx0i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ujna"]
 atlas = ExtResource("2_87gl5")
@@ -128,8 +134,9 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="ImageTexture" id="ImageTexture_2o6u3"]
+
 [node name="Companion" type="Node2D"]
-position = Vector2(-37, -42)
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_6inix")
 min_distance = 10.0
@@ -140,3 +147,18 @@ sprite_frames = SubResource("SpriteFrames_ckkcp")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.513867
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+blend_mode = 2
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("ImageTexture_2o6u3")
+texture_scale = 2.5
+script = ExtResource("3_gpcoh")
+frames = Array[CompressedTexture2D]([ExtResource("4_rjpc5"), ExtResource("5_41lpr"), ExtResource("6_wjrjb"), ExtResource("7_2q6i2"), ExtResource("8_4rx0i")])
+
+[node name="Timer" type="Timer" parent="PointLight2D"]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="PointLight2D/Timer" to="PointLight2D" method="_on_timer_timeout"]
