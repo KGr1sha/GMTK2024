@@ -1,8 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://biutssqy4fstl"]
+[gd_scene load_steps=26 format=3 uid="uid://biutssqy4fstl"]
 
 [ext_resource type="Script" path="res://Scripts/follow.gd" id="1_6inix"]
 [ext_resource type="Texture2D" uid="uid://d3bq5o0kwn8qr" path="res://Art/Characters/companion-Sheet v1.01.png" id="2_87gl5"]
-[ext_resource type="Script" path="res://Scripts/Light/light.gd" id="3_gpcoh"]
+[ext_resource type="PackedScene" uid="uid://cwkx2a4ka8keq" path="res://Scenes/Level/light.tscn" id="3_ve25s"]
 [ext_resource type="Texture2D" uid="uid://wf0yv2taeco1" path="res://Resources/light/companion_light1.png" id="4_jbo7a"]
 [ext_resource type="Texture2D" uid="uid://dvaq7o526p1jw" path="res://Resources/light/companion_light2.png" id="5_hwqy8"]
 [ext_resource type="Texture2D" uid="uid://gk0r87khdr65" path="res://Resources/light/companion_light3.png" id="6_1ij0s"]
@@ -134,8 +134,6 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="ImageTexture" id="ImageTexture_2o6u3"]
-
 [node name="Companion" type="Node2D"]
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_6inix")
@@ -148,17 +146,6 @@ animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.513867
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-blend_mode = 2
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 1)
-texture = SubResource("ImageTexture_2o6u3")
-texture_scale = 2.5
-script = ExtResource("3_gpcoh")
+[node name="PointLight2D" parent="." instance=ExtResource("3_ve25s")]
 frames = Array[CompressedTexture2D]([ExtResource("4_jbo7a"), ExtResource("5_hwqy8"), ExtResource("6_1ij0s"), ExtResource("7_n7ll0"), ExtResource("8_na4f4")])
-
-[node name="Timer" type="Timer" parent="PointLight2D"]
-wait_time = 0.2
-autostart = true
-
-[connection signal="timeout" from="PointLight2D/Timer" to="PointLight2D" method="_on_timer_timeout"]
+auto_start = true

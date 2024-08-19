@@ -2,65 +2,53 @@
 
 [ext_resource type="Script" path="res://Scripts/door.gd" id="1_wel0b"]
 [ext_resource type="Texture2D" uid="uid://etoooo34en0h" path="res://Art/Environment/door.png" id="2_lvji7"]
+[ext_resource type="PackedScene" uid="uid://cwkx2a4ka8keq" path="res://Scenes/Level/light.tscn" id="3_skvn6"]
+[ext_resource type="Texture2D" uid="uid://c0r3f2w2m6nuq" path="res://Resources/light/door_light.png" id="4_v6qrg"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bbl67"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8h0x"]
 atlas = ExtResource("2_lvji7")
-region = Rect2(0, 0, 16, 16)
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3hnuw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4o4e"]
 atlas = ExtResource("2_lvji7")
-region = Rect2(16, 0, 16, 16)
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4j16i"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nlww"]
 atlas = ExtResource("2_lvji7")
-region = Rect2(32, 0, 16, 16)
+region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_egrob"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwrxa"]
 atlas = ExtResource("2_lvji7")
-region = Rect2(48, 0, 16, 16)
+region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fn83s"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul3be"]
 atlas = ExtResource("2_lvji7")
-region = Rect2(64, 0, 16, 16)
+region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sviw3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_oikdm"]
 atlas = ExtResource("2_lvji7")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8e3yr"]
-atlas = ExtResource("2_lvji7")
-region = Rect2(96, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_15cj7"]
-atlas = ExtResource("2_lvji7")
-region = Rect2(112, 0, 16, 16)
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bhtiu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bbl67")
+"texture": SubResource("AtlasTexture_c8h0x")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3hnuw")
+"texture": SubResource("AtlasTexture_m4o4e")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4j16i")
+"texture": SubResource("AtlasTexture_5nlww")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_egrob")
+"texture": SubResource("AtlasTexture_pwrxa")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fn83s")
+"texture": SubResource("AtlasTexture_ul3be")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sviw3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8e3yr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_15cj7")
+"texture": SubResource("AtlasTexture_oikdm")
 }],
 "loop": false,
 "name": &"open",
@@ -74,3 +62,6 @@ locks = [null]
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bhtiu")
 animation = &"open"
+
+[node name="PointLight2D" parent="." instance=ExtResource("3_skvn6")]
+frames = Array[CompressedTexture2D]([ExtResource("4_v6qrg")])

@@ -1,104 +1,38 @@
-[gd_scene load_steps=17 format=3 uid="uid://b0pf1mqiv2cxe"]
+[gd_scene load_steps=10 format=3 uid="uid://b0pf1mqiv2cxe"]
 
 [ext_resource type="Script" path="res://Scripts/Key/key.gd" id="1_d8o6t"]
-[ext_resource type="Texture2D" uid="uid://bpsofja4mhqv1" path="res://Art/Environment/key-blue.png" id="2_88ne0"]
+[ext_resource type="Texture2D" uid="uid://bgy2ldlkukcc" path="res://Art/Environment/key.png" id="2_idv38"]
+[ext_resource type="PackedScene" uid="uid://cwkx2a4ka8keq" path="res://Scenes/Level/light.tscn" id="3_74xsv"]
+[ext_resource type="Texture2D" uid="uid://cygl7x8ce4obe" path="res://Resources/light/player_light3.png" id="4_mhpdm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j0x0t"]
+radius = 8.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8wobe"]
-atlas = ExtResource("2_88ne0")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_qelwy"]
+atlas = ExtResource("2_idv38")
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0pha3"]
-atlas = ExtResource("2_88ne0")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_klh0f"]
-atlas = ExtResource("2_88ne0")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0m3j4"]
-atlas = ExtResource("2_88ne0")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ahptc"]
-atlas = ExtResource("2_88ne0")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fk8l4"]
-atlas = ExtResource("2_88ne0")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a725h"]
-atlas = ExtResource("2_88ne0")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mf6s3"]
-atlas = ExtResource("2_88ne0")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lhhwb"]
-atlas = ExtResource("2_88ne0")
-region = Rect2(256, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_men1f"]
-atlas = ExtResource("2_88ne0")
-region = Rect2(288, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4lr0r"]
-atlas = ExtResource("2_88ne0")
-region = Rect2(320, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_re1rk"]
-atlas = ExtResource("2_88ne0")
-region = Rect2(352, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ej5ik"]
+atlas = ExtResource("2_idv38")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2vvhc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8wobe")
+"texture": SubResource("AtlasTexture_qelwy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0pha3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_klh0f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0m3j4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ahptc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fk8l4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a725h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mf6s3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lhhwb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_men1f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4lr0r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_re1rk")
+"texture": SubResource("AtlasTexture_ej5ik")
 }],
 "loop": true,
 "name": &"default",
-"speed": 10.0
+"speed": 1.0
 }]
 
+[sub_resource type="ImageTexture" id="ImageTexture_wtjoo"]
+
 [node name="Key" type="Node2D"]
-scale = Vector2(0.5, 0.5)
 script = ExtResource("1_d8o6t")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -109,7 +43,11 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_j0x0t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_2vvhc")
 autoplay = "default"
 frame_progress = 0.0735269
+
+[node name="PointLight2D" parent="." instance=ExtResource("3_74xsv")]
+texture = SubResource("ImageTexture_wtjoo")
+texture_scale = 1.0
+frames = Array[CompressedTexture2D]([ExtResource("4_mhpdm")])

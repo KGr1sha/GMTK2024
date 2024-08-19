@@ -1,24 +1,56 @@
-[gd_scene load_steps=6 format=3 uid="uid://bn20aluh8tesa"]
+[gd_scene load_steps=13 format=3 uid="uid://dk4mnxja1no2o"]
 
 [ext_resource type="Script" path="res://Scripts/lever.gd" id="1_ga7bm"]
-[ext_resource type="Texture2D" uid="uid://b35aau1unv3ca" path="res://Art/Environment/cavesofgallet_tiles.png" id="2_028hv"]
+[ext_resource type="Texture2D" uid="uid://01mj6n1lklm0" path="res://Art/Environment/lever.png" id="2_tlekg"]
+[ext_resource type="PackedScene" uid="uid://cwkx2a4ka8keq" path="res://Scenes/Level/light.tscn" id="3_ae7pd"]
+[ext_resource type="Texture2D" uid="uid://cygl7x8ce4obe" path="res://Resources/light/player_light3.png" id="4_ugwn4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kkmni"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j4h4l"]
-atlas = ExtResource("2_028hv")
-region = Rect2(48, 80, 8, 8)
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpao2"]
+atlas = ExtResource("2_tlekg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3o6q2"]
+atlas = ExtResource("2_tlekg")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd30q"]
+atlas = ExtResource("2_tlekg")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thcxn"]
+atlas = ExtResource("2_tlekg")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8e27t"]
+atlas = ExtResource("2_tlekg")
+region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i28e3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j4h4l")
+"texture": SubResource("AtlasTexture_qpao2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3o6q2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd30q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thcxn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8e27t")
 }],
 "loop": true,
-"name": &"default",
+"name": &"pull",
 "speed": 5.0
 }]
+
+[sub_resource type="ImageTexture" id="ImageTexture_y5p0s"]
 
 [node name="Lever" type="Node2D"]
 position = Vector2(33, -40)
@@ -33,3 +65,9 @@ shape = SubResource("CircleShape2D_kkmni")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_i28e3")
+animation = &"pull"
+
+[node name="PointLight2D" parent="." instance=ExtResource("3_ae7pd")]
+texture = SubResource("ImageTexture_y5p0s")
+texture_scale = 1.0
+frames = Array[CompressedTexture2D]([ExtResource("4_ugwn4")])
