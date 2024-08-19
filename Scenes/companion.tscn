@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=3 uid="uid://biutssqy4fstl"]
 
-[ext_resource type="Script" path="res://Scripts/follow.gd" id="1_6inix"]
+[ext_resource type="Script" path="res://Scripts/follow_lerp.gd" id="1_qqojo"]
 [ext_resource type="Texture2D" uid="uid://d3bq5o0kwn8qr" path="res://Art/Characters/companion-Sheet v1.01.png" id="2_87gl5"]
 [ext_resource type="Script" path="res://Scripts/Light/light.gd" id="3_gpcoh"]
 [ext_resource type="Texture2D" uid="uid://wf0yv2taeco1" path="res://Resources/light/companion_light1.png" id="4_jbo7a"]
@@ -138,9 +138,9 @@ animations = [{
 
 [node name="Companion" type="Node2D"]
 scale = Vector2(0.75, 0.75)
-script = ExtResource("1_6inix")
+script = ExtResource("1_qqojo")
+offset_speed = 0.2
 min_distance = 10.0
-follow_speed = 0.2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ckkcp")
