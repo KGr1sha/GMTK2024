@@ -2,9 +2,13 @@ class_name RunAnim
 extends State
 
 
-@export var animated_sprite : AnimatedSprite2D
+var animated_sprite : AnimatedSprite2D
 @export var player_root : Node2D
 var horizontal_input : float
+
+
+func _ready() -> void:
+	animated_sprite = get_node("../../AnimatedSprite2D")
 
 
 func enter() -> void:
@@ -21,6 +25,3 @@ func process(_delta: float) -> void:
 			abs(animated_sprite.scale.x) * horizontal_input,
 			animated_sprite.scale.y
 		)
-
-	
-	

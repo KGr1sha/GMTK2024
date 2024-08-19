@@ -7,6 +7,7 @@ const JUMP_VELOCITY = -200.0
 
 @export var body : CharacterBody2D
 @export var cyotee_jump_window : float = 0.05
+@export var animator : FSM
 var ladder_check : LadderCheck
 var cyotee_timer : float
 
@@ -27,9 +28,10 @@ func process(delta: float) -> void:
 	want_to_jump = want_to_jump or Input.is_action_just_pressed("Jump")
 
 	if ladder_check.is_on_ladder\
-		and Input.is_action_pressed("Climb")\
-		and horizontal_input == 0:
+	and Input.is_action_pressed("Climb")\
+	and horizontal_input == 0:
 		fsm.change_state("ClimbState")
+		animator.change_state("Climb")
 
 	if want_to_jump:
 		cyotee_timer -= delta

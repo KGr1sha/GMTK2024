@@ -4,6 +4,7 @@ extends State
 
 @export var body : CharacterBody2D
 @export var climb_speed : float = 10.0
+@export var animator : FSM
 var ladder_check : LadderCheck
 var vertical_input : float
 var horizontal_input : float
@@ -19,8 +20,9 @@ func process(_delta : float) -> void:
 	if Input.is_action_just_pressed("Jump")\
 	or (horizontal_input != 0 and vertical_input == 0)\
 	or not ladder_check.is_on_ladder\
-	or body.is_on_floor():
+	or (body.is_on_floor() and not vertical_input):
 		fsm.change_state("MoveState")
+		animator.change_state("Run")
 
 
 func physics_process(_delta: float) -> void:

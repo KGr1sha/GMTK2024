@@ -11,3 +11,8 @@ func unlock() -> void:
 	opened = true
 	unlocked.emit()
 
+
+func lock() -> void:
+	opened = false
+	unlocked.emit()
+

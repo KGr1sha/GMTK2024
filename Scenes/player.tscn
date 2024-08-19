@@ -214,15 +214,17 @@ autoplay = "idle"
 script = ExtResource("6_hi7jq")
 initial_state = NodePath("MoveState")
 
-[node name="MoveState" type="Node2D" parent="MovementController" node_paths=PackedStringArray("body")]
+[node name="MoveState" type="Node2D" parent="MovementController" node_paths=PackedStringArray("body", "animator")]
 script = ExtResource("1_7qewy")
 body = NodePath("../..")
 cyotee_jump_window = 0.1
+animator = NodePath("../../Animator")
 
-[node name="ClimbState" type="Node2D" parent="MovementController" node_paths=PackedStringArray("body")]
+[node name="ClimbState" type="Node2D" parent="MovementController" node_paths=PackedStringArray("body", "animator")]
 script = ExtResource("4_cv3oq")
 body = NodePath("../..")
 climb_speed = 20.0
+animator = NodePath("../../Animator")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.75, 3.75)
@@ -271,18 +273,15 @@ script = ExtResource("5_72xwt")
 script = ExtResource("6_hi7jq")
 initial_state = NodePath("Idle")
 
-[node name="Idle" type="Node2D" parent="Animator" node_paths=PackedStringArray("animated_sprite")]
+[node name="Idle" type="Node2D" parent="Animator"]
 script = ExtResource("7_g4i1j")
-animated_sprite = NodePath("../../AnimatedSprite2D")
 
-[node name="Run" type="Node2D" parent="Animator" node_paths=PackedStringArray("animated_sprite", "player_root")]
+[node name="Run" type="Node2D" parent="Animator" node_paths=PackedStringArray("player_root")]
 script = ExtResource("8_d5cf5")
-animated_sprite = NodePath("../../AnimatedSprite2D")
 player_root = NodePath("../..")
 
-[node name="Climb" type="Node2D" parent="Animator" node_paths=PackedStringArray("animated_sprite")]
+[node name="Climb" type="Node2D" parent="Animator"]
 script = ExtResource("10_6nd1w")
-animated_sprite = NodePath("../../AnimatedSprite2D")
 
 [node name="LadderCheck" type="Area2D" parent="."]
 collision_layer = 2
