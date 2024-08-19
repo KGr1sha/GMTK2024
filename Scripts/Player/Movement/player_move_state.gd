@@ -15,6 +15,7 @@ var speed_scale : float = 1.0
 var jump_scale : float = 1.0
 
 var horizontal_input : float
+var vertical_input : float
 var want_to_jump : bool
 
 
@@ -25,10 +26,11 @@ func _ready() -> void:
 
 func process(delta: float) -> void:
 	horizontal_input = Input.get_axis("MoveLeft", "MoveRight")
+	vertical_input = Input.get_axis("Climb", "Drop")
 	want_to_jump = want_to_jump or Input.is_action_just_pressed("Jump")
 
 	if ladder_check.is_on_ladder\
-	and Input.is_action_pressed("Climb")\
+	and vertical_input\
 	and horizontal_input == 0:
 		fsm.change_state("ClimbState")
 		animator.change_state("Climb")

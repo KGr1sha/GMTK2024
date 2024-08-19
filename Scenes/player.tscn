@@ -232,6 +232,7 @@ animator = NodePath("../../Animator")
 script = ExtResource("4_cv3oq")
 body = NodePath("../..")
 climb_speed = 35.0
+animator = NodePath("../../Animator")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.75, 3.75)
