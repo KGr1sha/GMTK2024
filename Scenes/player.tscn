@@ -200,8 +200,6 @@ size = Vector2(10.5, 14.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_et01t"]
 size = Vector2(2.5, 14)
 
-[sub_resource type="ImageTexture" id="ImageTexture_not6y"]
-
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -11)
 collision_layer = 2
@@ -261,7 +259,7 @@ move_speed = 2.0
 [node name="Large" type="Node2D" parent="Scaler"]
 script = ExtResource("4_ohq31")
 id = 3
-camera_zoom = 6.0
+camera_zoom = 3.0
 player_scale = 2.0
 jump_strength = 2.0
 move_speed = 2.0
@@ -294,15 +292,3 @@ script = ExtResource("9_sxq6s")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LadderCheck"]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_et01t")
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-texture = SubResource("ImageTexture_not6y")
-texture_scale = 2.5
-script = ExtResource("11_fnims")
-frames = Array[CompressedTexture2D]([ExtResource("12_16hrq"), ExtResource("13_3pcfv"), ExtResource("14_inj0p"), ExtResource("15_lnd31"), ExtResource("16_jtp71")])
-
-[node name="Timer" type="Timer" parent="PointLight2D"]
-wait_time = 0.2
-autostart = true
-
-[connection signal="timeout" from="PointLight2D/Timer" to="PointLight2D" method="_on_timer_timeout"]

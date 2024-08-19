@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://Scripts/follow.gd" id="1_6inix"]
 [ext_resource type="Texture2D" uid="uid://d3bq5o0kwn8qr" path="res://Art/Characters/companion-Sheet v1.01.png" id="2_87gl5"]
 [ext_resource type="Script" path="res://Scripts/Light/light.gd" id="3_gpcoh"]
-[ext_resource type="Texture2D" uid="uid://ddofwiefqonih" path="res://Resources/light/companionlight1.png" id="4_rjpc5"]
-[ext_resource type="Texture2D" uid="uid://yygpqs1wm5xh" path="res://Resources/light/companionlight2.png" id="5_41lpr"]
-[ext_resource type="Texture2D" uid="uid://n5uf2qm6v6qp" path="res://Resources/light/companionlight3.png" id="6_wjrjb"]
-[ext_resource type="Texture2D" uid="uid://dblccmfg45ed0" path="res://Resources/light/companionlight4.png" id="7_2q6i2"]
-[ext_resource type="Texture2D" uid="uid://cq5gmy5qk1qn0" path="res://Resources/light/companionlight5.png" id="8_4rx0i"]
+[ext_resource type="Texture2D" uid="uid://wf0yv2taeco1" path="res://Resources/light/companion_light1.png" id="4_jbo7a"]
+[ext_resource type="Texture2D" uid="uid://dvaq7o526p1jw" path="res://Resources/light/companion_light2.png" id="5_hwqy8"]
+[ext_resource type="Texture2D" uid="uid://gk0r87khdr65" path="res://Resources/light/companion_light3.png" id="6_1ij0s"]
+[ext_resource type="Texture2D" uid="uid://byb7e0iqnwbi4" path="res://Resources/light/companion_light4.png" id="7_n7ll0"]
+[ext_resource type="Texture2D" uid="uid://cb54pbrinqogr" path="res://Resources/light/companion_light5.png" id="8_na4f4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ujna"]
 atlas = ExtResource("2_87gl5")
@@ -155,7 +155,7 @@ shadow_color = Color(0, 0, 0, 1)
 texture = SubResource("ImageTexture_2o6u3")
 texture_scale = 2.5
 script = ExtResource("3_gpcoh")
-frames = Array[CompressedTexture2D]([ExtResource("4_rjpc5"), ExtResource("5_41lpr"), ExtResource("6_wjrjb"), ExtResource("7_2q6i2"), ExtResource("8_4rx0i")])
+frames = Array[CompressedTexture2D]([ExtResource("4_jbo7a"), ExtResource("5_hwqy8"), ExtResource("6_1ij0s"), ExtResource("7_n7ll0"), ExtResource("8_na4f4")])
 
 [node name="Timer" type="Timer" parent="PointLight2D"]
 wait_time = 0.2
