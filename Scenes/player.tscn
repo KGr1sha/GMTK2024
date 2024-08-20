@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://c486y12tqawhf"]
+[gd_scene load_steps=46 format=3 uid="uid://c486y12tqawhf"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Movement/player_move_state.gd" id="1_7qewy"]
 [ext_resource type="Texture2D" uid="uid://ck5nt5qj4e1gh" path="res://Art/Characters/girl v1.1-sheet.png" id="1_h1vmr"]
@@ -11,12 +11,13 @@
 [ext_resource type="Script" path="res://Scripts/Player/Animations/run_anim.gd" id="8_d5cf5"]
 [ext_resource type="Script" path="res://Scripts/Player/ladder_check.gd" id="9_sxq6s"]
 [ext_resource type="Script" path="res://Scripts/Player/Animations/climb_anim.gd" id="10_6nd1w"]
-[ext_resource type="PackedScene" uid="uid://lhaawagmmr2d" path="res://Scenes/Level/light.tscn" id="12_tcnbx"]
-[ext_resource type="Texture2D" uid="uid://c6qxxne1pa40f" path="res://Resources/light/player_light1.png" id="13_gihde"]
-[ext_resource type="Texture2D" uid="uid://icivfn5rdjbx" path="res://Resources/light/player_light2.png" id="14_5j42c"]
-[ext_resource type="Texture2D" uid="uid://cygl7x8ce4obe" path="res://Resources/light/player_light3.png" id="15_ji2c4"]
-[ext_resource type="Texture2D" uid="uid://ckwmkju0m1hed" path="res://Resources/light/player_light4.png" id="16_osj2t"]
-[ext_resource type="Texture2D" uid="uid://cg7qink06fsdd" path="res://Resources/light/player_light5.png" id="17_0ewou"]
+[ext_resource type="PackedScene" uid="uid://cwkx2a4ka8keq" path="res://Scenes/Level/light.tscn" id="12_tcnbx"]
+[ext_resource type="Texture2D" uid="uid://c6qxxne1pa40f" path="res://Resources/Light/player_light1.png" id="13_gihde"]
+[ext_resource type="Texture2D" uid="uid://icivfn5rdjbx" path="res://Resources/Light/player_light2.png" id="14_5j42c"]
+[ext_resource type="Texture2D" uid="uid://cygl7x8ce4obe" path="res://Resources/Light/player_light3.png" id="15_ji2c4"]
+[ext_resource type="Texture2D" uid="uid://ckwmkju0m1hed" path="res://Resources/Light/player_light4.png" id="16_osj2t"]
+[ext_resource type="Texture2D" uid="uid://cg7qink06fsdd" path="res://Resources/Light/player_light5.png" id="17_0ewou"]
+[ext_resource type="PackedScene" uid="uid://bv07dl4ew3qor" path="res://Scenes/pusher.tscn" id="18_edboj"]
 [ext_resource type="Script" path="res://Scripts/Player/pusher.gd" id="19_xhi43"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yo1ft"]
@@ -287,12 +288,12 @@ check_pos = Vector2(0, -4)
 [node name="Large" type="Node2D" parent="Scaler"]
 script = ExtResource("4_ohq31")
 id = 3
-camera_zoom = 3.0
+camera_zoom = 4.0
 player_scale = 2.0
-jump_strength = 1.0
-move_speed = 2.0
+jump_strength = 0.75
+move_speed = 3.0
 can_push = true
-gravity_scale = 0.5
+gravity_scale = 0.3
 check_size = Vector2(1.2, 1.2)
 check_pos = Vector2(0, -4)
 
