@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://ceywiotc6nx7i"]
+[gd_scene load_steps=15 format=4 uid="uid://ceywiotc6nx7i"]
 
 [ext_resource type="TileSet" uid="uid://cj7bg3t0y2mnl" path="res://Resources/temp_tileset.tres" id="1_twne6"]
 [ext_resource type="PackedScene" uid="uid://c486y12tqawhf" path="res://Scenes/player.tscn" id="2_gldfn"]
@@ -8,8 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://cou5kd7d64mwb" path="res://Scenes/Level/ladder.tscn" id="6_lxxe0"]
 [ext_resource type="PackedScene" uid="uid://cyi48bfpf5o0n" path="res://Scenes/Level/platform.tscn" id="7_ivskv"]
 [ext_resource type="PackedScene" uid="uid://biutssqy4fstl" path="res://Scenes/companion.tscn" id="8_okr5b"]
-[ext_resource type="PackedScene" uid="uid://bn20aluh8tesa" path="res://Scenes/Level/lever.tscn" id="9_nl3dx"]
+[ext_resource type="PackedScene" uid="uid://dk4mnxja1no2o" path="res://Scenes/Level/lever.tscn" id="9_nl3dx"]
 [ext_resource type="Texture2D" uid="uid://cbsrhha8o24vp" path="res://Art/Environment/Earth.png" id="10_iugpa"]
+[ext_resource type="Texture2D" uid="uid://cqbvistk1tiw8" path="res://Art/Environment/valun.png" id="11_2node"]
 [ext_resource type="PackedScene" uid="uid://nwatcas3g6fb" path="res://Scenes/Level/button.tscn" id="11_y0lyn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ydpqy"]
@@ -17,7 +18,7 @@ rough = true
 absorbent = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nrdbs"]
-radius = 16.0
+radius = 7.0
 
 [node name="TestScene" type="Node2D"]
 
@@ -36,7 +37,6 @@ position = Vector2(-14, -25)
 
 [node name="Key" parent="." instance=ExtResource("3_fgj4c")]
 position = Vector2(-71, -13)
-scale = Vector2(1, 1)
 
 [node name="KeyLock" parent="." instance=ExtResource("4_j624b")]
 position = Vector2(76, -12)
@@ -64,7 +64,7 @@ default_offset = Vector2(0, -20)
 position = Vector2(14, -32)
 
 [node name="Rock" type="RigidBody2D" parent="."]
-position = Vector2(-122, -20)
+position = Vector2(-122, -7)
 collision_layer = 16
 collision_mask = 33
 mass = 1000.0
@@ -73,11 +73,18 @@ angular_damp_mode = 1
 angular_damp = 2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Rock"]
+visible = false
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("10_iugpa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock"]
-position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_nrdbs")
 
+[node name="Sprite2D2" type="Sprite2D" parent="Rock"]
+position = Vector2(0, -4)
+texture = ExtResource("11_2node")
+
 [node name="Button" parent="." instance=ExtResource("11_y0lyn")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.0784314, 0.0784314, 0.0784314, 1)
