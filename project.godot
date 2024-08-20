@@ -10,10 +10,14 @@ config_version=5
 
 [application]
 
-config/name="GMTK"
+config/name="Lost Light"
 config/version="1.0.0"
-run/main_scene="res://Scenes/test_scene_grisha.tscn"
+run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+run/max_fps=144
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://Art/icon.png"
 
 [autoload]
@@ -24,6 +28,9 @@ GlobalMusic="*res://Scenes/Level/global_music.tscn"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=2
+window/size/borderless=true
+window/stretch/mode="viewport"
 
 [input]
 

@@ -1,4 +1,4 @@
-class_name Follow
+class_name FollowLerp
 extends Node2D
 
 

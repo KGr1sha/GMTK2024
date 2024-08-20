@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://lpwwas4jdiy0"
-path="res://.godot/imported/valun_light.png-a4f26e402bb13bd9ec5782134de74182.ctex"
+path="res://.godot/imported/valun_light.png-e17142bca5f75d60ba1784b995f253c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Light/valun_light.png"
-dest_files=["res://.godot/imported/valun_light.png-a4f26e402bb13bd9ec5782134de74182.ctex"]
+source_file="res://Resources/light/valun_light.png"
+dest_files=["res://.godot/imported/valun_light.png-e17142bca5f75d60ba1784b995f253c8.ctex"]
 
 [params]
 

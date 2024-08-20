@@ -24,7 +24,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if player_near and Input.is_action_just_pressed("Interact"):
+	if player_near and Input.is_action_just_pressed("Interact") and is_opened:
 		get_tree().change_scene_to_packed(next_scene)
 
 
