@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://lpp2s2a1n3w2"]
+[gd_scene load_steps=12 format=4 uid="uid://bcj6cc1akfc6y"]
 
 [ext_resource type="TileSet" uid="uid://cj7bg3t0y2mnl" path="res://Resources/temp_tileset.tres" id="1_twne6"]
-[ext_resource type="PackedScene" uid="uid://rn05812chugq" path="res://Scenes/player.tscn" id="2_gldfn"]
-[ext_resource type="PackedScene" path="res://Scenes/key.tscn" id="3_fgj4c"]
+[ext_resource type="PackedScene" uid="uid://c486y12tqawhf" path="res://Scenes/player.tscn" id="2_gldfn"]
 [ext_resource type="Script" path="res://Scripts/Key/key_lock.gd" id="4_hdrdm"]
-[ext_resource type="Texture2D" uid="uid://b35aau1unv3ca" path="res://Art/cavesofgallet_tiles.png" id="5_mpkud"]
+[ext_resource type="Texture2D" uid="uid://b35aau1unv3ca" path="res://Art/Environment/cavesofgallet_tiles.png" id="5_mpkud"]
 [ext_resource type="Script" path="res://Scripts/door.gd" id="6_gsbig"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bxwrs"]
@@ -59,9 +58,19 @@ tile_set = ExtResource("1_twne6")
 
 [node name="Player" parent="." instance=ExtResource("2_gldfn")]
 
-[node name="Key" parent="." instance=ExtResource("3_fgj4c")]
+[node name="Key" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 position = Vector2(-52, -21)
 scale = Vector2(1, 1)
+script = null
 
 [node name="KeyLock" type="Node2D" parent="."]
 position = Vector2(95, -20)

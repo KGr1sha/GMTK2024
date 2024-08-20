@@ -8,3 +8,6 @@ extends Node
 @export var move_speed : float
 @export var can_push : bool
 @export var gravity_scale : float
+@export var check_size : Vector2
+@export var check_pos : Vector2
+

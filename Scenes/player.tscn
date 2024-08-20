@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://Scripts/Player/Animations/run_anim.gd" id="8_d5cf5"]
 [ext_resource type="Script" path="res://Scripts/Player/ladder_check.gd" id="9_sxq6s"]
 [ext_resource type="Script" path="res://Scripts/Player/Animations/climb_anim.gd" id="10_6nd1w"]
-[ext_resource type="PackedScene" uid="uid://cwkx2a4ka8keq" path="res://Scenes/Level/light.tscn" id="12_tcnbx"]
+[ext_resource type="PackedScene" uid="uid://lhaawagmmr2d" path="res://Scenes/Level/light.tscn" id="12_tcnbx"]
 [ext_resource type="Texture2D" uid="uid://c6qxxne1pa40f" path="res://Resources/light/player_light1.png" id="13_gihde"]
 [ext_resource type="Texture2D" uid="uid://icivfn5rdjbx" path="res://Resources/light/player_light2.png" id="14_5j42c"]
 [ext_resource type="Texture2D" uid="uid://cygl7x8ce4obe" path="res://Resources/light/player_light3.png" id="15_ji2c4"]
@@ -208,8 +208,10 @@ size = Vector2(10.5, 14.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_et01t"]
 size = Vector2(2.5, 14)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nchei"]
+
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(0, -11)
+position = Vector2(0, -6)
 collision_layer = 2
 collision_mask = 17
 
@@ -259,6 +261,8 @@ player_scale = 0.5
 jump_strength = 0.5
 move_speed = 0.5
 gravity_scale = 1.0
+check_size = Vector2(1.2, 1.2)
+check_pos = Vector2(0, -4)
 
 [node name="Medium" type="Node2D" parent="Scaler"]
 script = ExtResource("4_ohq31")
@@ -268,6 +272,8 @@ player_scale = 1.0
 jump_strength = 1.0
 move_speed = 2.0
 gravity_scale = 1.0
+check_size = Vector2(1.2, 1.2)
+check_pos = Vector2(0, -4)
 
 [node name="Large" type="Node2D" parent="Scaler"]
 script = ExtResource("4_ohq31")
@@ -278,6 +284,8 @@ jump_strength = 1.0
 move_speed = 2.0
 can_push = true
 gravity_scale = 0.5
+check_size = Vector2(1.2, 1.2)
+check_pos = Vector2(0, -4)
 
 [node name="KeyCollecter" type="Node2D" parent="."]
 script = ExtResource("5_72xwt")
@@ -308,15 +316,16 @@ shape = SubResource("RectangleShape2D_et01t")
 [node name="PointLight2D" parent="." instance=ExtResource("12_tcnbx")]
 frames = Array[CompressedTexture2D]([ExtResource("13_gihde"), ExtResource("14_5j42c"), ExtResource("15_ji2c4"), ExtResource("16_osj2t"), ExtResource("17_0ewou")])
 
-[node name="Timer" type="Timer" parent="PointLight2D"]
-wait_time = 0.2
-autostart = true
-
 [node name="Pusher" parent="." node_paths=PackedStringArray("move_state", "scaler") instance=ExtResource("18_edboj")]
 script = ExtResource("19_xhi43")
 move_state = NodePath("../MovementController/MoveState")
 scaler = NodePath("../Scaler")
 
-[connection signal="timeout" from="PointLight2D/Timer" to="PointLight2D" method="_on_timer_timeout"]
+[node name="ShapeCast2D" type="ShapeCast2D" parent="."]
+position = Vector2(0, -4)
+scale = Vector2(1.2, 1.2)
+shape = SubResource("RectangleShape2D_nchei")
+target_position = Vector2(0, 0)
+max_results = 1
 
 [editable path="Pusher"]

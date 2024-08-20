@@ -36,7 +36,6 @@ position = Vector2(-14, -25)
 
 [node name="Key" parent="." instance=ExtResource("3_fgj4c")]
 position = Vector2(-71, -13)
-scale = Vector2(1, 1)
 
 [node name="KeyLock" parent="." instance=ExtResource("4_j624b")]
 position = Vector2(76, -12)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/door.gd" id="1_wel0b"]
 [ext_resource type="Texture2D" uid="uid://etoooo34en0h" path="res://Art/Environment/door.png" id="2_lvji7"]
-[ext_resource type="PackedScene" uid="uid://cwkx2a4ka8keq" path="res://Scenes/Level/light.tscn" id="3_skvn6"]
+[ext_resource type="PackedScene" uid="uid://lhaawagmmr2d" path="res://Scenes/Level/light.tscn" id="3_skvn6"]
 [ext_resource type="Texture2D" uid="uid://c0r3f2w2m6nuq" path="res://Resources/light/door_light.png" id="4_v6qrg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c8h0x"]

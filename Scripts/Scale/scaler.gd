@@ -7,6 +7,7 @@ extends Node
 @export var camera : Camera2D
 @export var player_movement : PlayerMoveState
 @export var scale_speed : float
+var checker : ShapeCast2D
 
 var scales : Dictionary #key - scale id; value - ScaleSettings
 var current_scale : ScaleSettings
@@ -18,6 +19,7 @@ var is_scaling : bool
 
 
 func _ready() -> void:
+	checker = get_node("../ShapeCast2D")
 	initialize_scales()
 	is_scaling = false
 
@@ -56,7 +58,8 @@ func initialize_scales() -> void:
 	
 
 func try_set_scale(new_scale_id : int) -> bool:
-	if scales.has(new_scale_id) == false or is_scaling:
+	if scales.has(new_scale_id) == false or is_scaling or\
+	(current_scale != null and new_scale_id > current_scale.id and checker.is_colliding()):
 		return false
 
 	var new_scale : ScaleSettings = scales[new_scale_id]
@@ -66,4 +69,6 @@ func try_set_scale(new_scale_id : int) -> bool:
 	player_movement.speed_scale = new_scale.move_speed
 	player_movement.jump_scale = new_scale.jump_strength
 	player_movement.gravity_scale = new_scale.gravity_scale
+	checker.scale = new_scale.check_size
+	checker.position = new_scale.check_pos
 	return true
