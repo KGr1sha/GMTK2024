@@ -12,6 +12,11 @@ func _ready() -> void:
 	area.body_entered.connect(on_enter)
 	area.body_exited.connect(on_exit)
 
+func unlock() -> void:
+	$AudioStreamPlayer2D.play()
+	opened = true
+	unlocked.emit()
+
 
 func on_enter(_body : Node2D) -> void:
 	unlock()

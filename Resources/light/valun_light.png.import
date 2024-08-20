@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gk0r87khdr65"
-path="res://.godot/imported/companion_light3.png-7c0e939fcdff01e8ac694d0cf82151c4.ctex"
+uid="uid://lpwwas4jdiy0"
+path="res://.godot/imported/valun_light.png-a4f26e402bb13bd9ec5782134de74182.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Light/companion_light3.png"
-dest_files=["res://.godot/imported/companion_light3.png-7c0e939fcdff01e8ac694d0cf82151c4.ctex"]
+source_file="res://Resources/Light/valun_light.png"
+dest_files=["res://.godot/imported/valun_light.png-a4f26e402bb13bd9ec5782134de74182.ctex"]
 
 [params]
 

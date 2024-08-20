@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://c486y12tqawhf"]
+[gd_scene load_steps=48 format=3 uid="uid://c486y12tqawhf"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Movement/player_move_state.gd" id="1_7qewy"]
 [ext_resource type="Texture2D" uid="uid://ck5nt5qj4e1gh" path="res://Art/Characters/girl v1.1-sheet.png" id="1_h1vmr"]
@@ -17,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://cygl7x8ce4obe" path="res://Resources/Light/player_light3.png" id="15_ji2c4"]
 [ext_resource type="Texture2D" uid="uid://ckwmkju0m1hed" path="res://Resources/Light/player_light4.png" id="16_osj2t"]
 [ext_resource type="Texture2D" uid="uid://cg7qink06fsdd" path="res://Resources/Light/player_light5.png" id="17_0ewou"]
-[ext_resource type="PackedScene" uid="uid://bv07dl4ew3qor" path="res://Scenes/pusher.tscn" id="18_edboj"]
 [ext_resource type="Script" path="res://Scripts/Player/pusher.gd" id="19_xhi43"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yo1ft"]

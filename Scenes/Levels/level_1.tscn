@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cxxngd4bbrp47"]
+[gd_scene load_steps=11 format=4 uid="uid://cxxngd4bbrp47"]
 
 [ext_resource type="PackedScene" uid="uid://c486y12tqawhf" path="res://Scenes/player.tscn" id="1_jjgoh"]
 [ext_resource type="PackedScene" uid="uid://biutssqy4fstl" path="res://Scenes/companion.tscn" id="2_tyxy6"]
@@ -26,15 +26,16 @@ collision_enabled = false
 [node name="Labels" type="Node2D" parent="Layers"]
 
 [node name="Label" type="Label" parent="Layers/Labels"]
-offset_left = 209.0
-offset_top = -24.0
-offset_right = 1072.0
-offset_bottom = 297.0
+offset_left = 203.0
+offset_top = -32.0
+offset_right = 1066.0
+offset_bottom = 451.0
 scale = Vector2(0.0430832, 0.0462298)
 theme_override_fonts/font = ExtResource("11_151un")
 theme_override_font_sizes/font_size = 200
 text = "W/S - to climb
-up/down"
+up/down
+Space - drop"
 
 [node name="Label5" type="Label" parent="Layers/Labels"]
 offset_left = 476.0
@@ -51,17 +52,17 @@ offset_left = 346.0
 offset_top = -104.0
 offset_right = 1196.0
 offset_bottom = 217.0
-scale = Vector2(0.0430832, 0.0462298)
+scale = Vector2(0.0456349, 0.0462298)
 theme_override_fonts/font = ExtResource("11_151un")
 theme_override_font_sizes/font_size = 200
-text = "Q - be smaller
-E - be bigger"
+text = "Q - get smaller
+E - get bigger"
 
 [node name="Label3" type="Label" parent="Layers/Labels"]
-offset_left = -53.0
-offset_top = -24.0
-offset_right = 835.0
-offset_bottom = 297.0
+offset_left = -111.0
+offset_top = -21.0
+offset_right = 777.0
+offset_bottom = 300.0
 scale = Vector2(0.0430832, 0.0462298)
 theme_override_fonts/font = ExtResource("11_151un")
 theme_override_font_sizes/font_size = 200
@@ -118,7 +119,6 @@ position = Vector2(410, 94)
 [node name="Companion" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_tyxy6")]
 position = Vector2(-108, -32)
 target = NodePath("../Player")
-min_distance = 30.0
 follow_speed = 0.5
 
 [node name="Player" parent="." instance=ExtResource("1_jjgoh")]

@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c64tq8114to6g"]
+[gd_scene load_steps=6 format=3 uid="uid://dopb0ve7e0s6l"]
 
 [ext_resource type="Texture2D" uid="uid://cqbvistk1tiw8" path="res://Art/Environment/valun.png" id="1_fdvek"]
+[ext_resource type="PackedScene" uid="uid://cwkx2a4ka8keq" path="res://Scenes/Level/light.tscn" id="2_uyhn6"]
+[ext_resource type="Texture2D" uid="uid://lpwwas4jdiy0" path="res://Resources/Light/valun_light.png" id="3_nrjk3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ydpqy"]
 absorbent = true
@@ -22,3 +24,7 @@ texture = ExtResource("1_fdvek")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nrdbs")
+
+[node name="PointLight2D" parent="." instance=ExtResource("2_uyhn6")]
+texture_scale = 1.5
+frames = Array[CompressedTexture2D]([ExtResource("3_nrjk3")])

@@ -54,4 +54,3 @@ func on_hover(_body : Node2D) -> void:
 
 func on_exit(_body : Node2D) -> void:
 	player_near = false
-
