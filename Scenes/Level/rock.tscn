@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c64tq8114to6g"]
+
+[ext_resource type="Texture2D" uid="uid://cqbvistk1tiw8" path="res://Art/Environment/valun.png" id="1_fdvek"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ydpqy"]
+absorbent = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nrdbs"]
+radius = 16.0
+
+[node name="Rock" type="RigidBody2D"]
+position = Vector2(-122, -16)
+collision_layer = 16
+collision_mask = 225
+physics_material_override = SubResource("PhysicsMaterial_ydpqy")
+inertia = 3.0
+angular_damp_mode = 1
+angular_damp = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fdvek")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nrdbs")

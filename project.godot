@@ -77,6 +77,8 @@ Drop={
 2d_physics/layer_4="collectables"
 2d_physics/layer_5="pushable"
 2d_physics/layer_6="pusher"
+2d_physics/layer_7="buttons"
+2d_physics/layer_8="platforms"
 
 [rendering]
 
