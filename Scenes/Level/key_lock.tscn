@@ -1,23 +1,31 @@
-[gd_scene load_steps=9 format=3 uid="uid://be7lrdvf3syhw"]
+[gd_scene load_steps=11 format=3 uid="uid://be7lrdvf3syhw"]
 
 [ext_resource type="Script" path="res://Scripts/Key/key_lock.gd" id="1_tlw2d"]
 [ext_resource type="Texture2D" uid="uid://cqr7w7g4lgi6a" path="res://Art/Environment/key_locker.png" id="2_0exnj"]
 [ext_resource type="PackedScene" uid="uid://cwkx2a4ka8keq" path="res://Scenes/Level/light.tscn" id="3_73c5k"]
 [ext_resource type="Texture2D" uid="uid://cygl7x8ce4obe" path="res://Resources/light/player_light3.png" id="4_5jw0u"]
+[ext_resource type="AudioStream" uid="uid://clqpcueefpm45" path="res://Resources/Music/keylocker.mp3" id="5_hg6l4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bxwrs"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1nswg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1h76j"]
 atlas = ExtResource("2_0exnj")
 region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62mw7"]
+atlas = ExtResource("2_0exnj")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ljy45"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1nswg")
+"texture": SubResource("AtlasTexture_1h76j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62mw7")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]
@@ -41,3 +49,7 @@ sprite_frames = SubResource("SpriteFrames_ljy45")
 texture = SubResource("ImageTexture_cv8tu")
 texture_scale = 1.0
 frames = Array[CompressedTexture2D]([ExtResource("4_5jw0u")])
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_hg6l4")
+volume_db = -5.0

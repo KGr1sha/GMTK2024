@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://c486y12tqawhf"]
+[gd_scene load_steps=45 format=3 uid="uid://c486y12tqawhf"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Movement/player_move_state.gd" id="1_7qewy"]
 [ext_resource type="Texture2D" uid="uid://ck5nt5qj4e1gh" path="res://Art/Characters/girl v1.1-sheet.png" id="1_h1vmr"]
@@ -307,16 +307,11 @@ shape = SubResource("RectangleShape2D_et01t")
 
 [node name="PointLight2D" parent="." instance=ExtResource("12_tcnbx")]
 frames = Array[CompressedTexture2D]([ExtResource("13_gihde"), ExtResource("14_5j42c"), ExtResource("15_ji2c4"), ExtResource("16_osj2t"), ExtResource("17_0ewou")])
-
-[node name="Timer" type="Timer" parent="PointLight2D"]
-wait_time = 0.2
-autostart = true
+auto_start = true
 
 [node name="Pusher" parent="." node_paths=PackedStringArray("move_state", "scaler") instance=ExtResource("18_edboj")]
 script = ExtResource("19_xhi43")
 move_state = NodePath("../MovementController/MoveState")
 scaler = NodePath("../Scaler")
-
-[connection signal="timeout" from="PointLight2D/Timer" to="PointLight2D" method="_on_timer_timeout"]
 
 [editable path="Pusher"]

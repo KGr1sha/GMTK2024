@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://cxxv006h1xsa4"]
+[gd_scene load_steps=5 format=4 uid="uid://bvbsokho3dcoa"]
 
 [ext_resource type="TileSet" uid="uid://cj7bg3t0y2mnl" path="res://Resources/temp_tileset.tres" id="1_nt24b"]
 [ext_resource type="FontFile" uid="uid://be4pqk0s8tlqv" path="res://Resources/Fonts/at01.ttf" id="2_rdx30"]

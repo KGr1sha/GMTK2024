@@ -16,6 +16,10 @@ run/main_scene="res://Scenes/test_scene_grisha.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://Art/icon.png"
 
+[autoload]
+
+GlobalMusic="*res://Scenes/Level/global_music.tscn"
+
 [display]
 
 window/size/viewport_width=1920
