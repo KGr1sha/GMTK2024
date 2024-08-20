@@ -21,4 +21,3 @@ func on_enter(_body : Node2D) -> void:
 func on_exit(_body : Node2D) -> void:
 	lock()
 	animated_sprite.play("press", -1, true)
-

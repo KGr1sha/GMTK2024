@@ -1,16 +1,21 @@
-[gd_scene load_steps=10 format=4 uid="uid://di1p55gsxyr11"]
+[gd_scene load_steps=12 format=4 uid="uid://fqah31a6pdis"]
 
+[ext_resource type="Script" path="res://Scripts/Music/music.gd" id="1_25h1y"]
 [ext_resource type="TileSet" uid="uid://cj7bg3t0y2mnl" path="res://Resources/temp_tileset.tres" id="1_sgxu7"]
 [ext_resource type="PackedScene" uid="uid://cou5kd7d64mwb" path="res://Scenes/Level/ladder.tscn" id="2_vy1bu"]
 [ext_resource type="PackedScene" uid="uid://cyi48bfpf5o0n" path="res://Scenes/Level/platform.tscn" id="3_vc7re"]
 [ext_resource type="PackedScene" uid="uid://biutssqy4fstl" path="res://Scenes/companion.tscn" id="4_il8i3"]
 [ext_resource type="PackedScene" uid="uid://43oo54ksomj2" path="res://Scenes/Level/door.tscn" id="5_2ks5s"]
-[ext_resource type="PackedScene" uid="uid://bn20aluh8tesa" path="res://Scenes/Level/lever.tscn" id="6_74br6"]
+[ext_resource type="PackedScene" uid="uid://dk4mnxja1no2o" path="res://Scenes/Level/lever.tscn" id="6_74br6"]
 [ext_resource type="PackedScene" uid="uid://c486y12tqawhf" path="res://Scenes/player.tscn" id="7_bjvra"]
+[ext_resource type="PackedScene" uid="uid://nwatcas3g6fb" path="res://Scenes/Level/button.tscn" id="8_gyisl"]
 [ext_resource type="PackedScene" uid="uid://b0pf1mqiv2cxe" path="res://Scenes/Level/key.tscn" id="8_xun56"]
 [ext_resource type="PackedScene" uid="uid://be7lrdvf3syhw" path="res://Scenes/Level/key_lock.tscn" id="9_3sj7l"]
 
 [node name="level_3" type="Node2D"]
+
+[node name="Music" type="Node2D" parent="."]
+script = ExtResource("1_25h1y")
 
 [node name="Layers" type="Node2D" parent="."]
 
@@ -24,6 +29,7 @@ tile_map_data = PackedByteArray("AAAeAAUAAQACAAIAAAAeAAQAAQACAAEAAAAeAAMAAQACAAE
 tile_set = ExtResource("1_sgxu7")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Layers"]
+visible = false
 color = Color(0.0784314, 0.0784314, 0.0784314, 1)
 
 [node name="Ladders" type="Node2D" parent="."]
@@ -34,11 +40,11 @@ rotation = 3.14159
 scale = Vector2(2.5385, -9.37278)
 
 [node name="Ladder2" parent="Ladders" instance=ExtResource("2_vy1bu")]
-position = Vector2(504, 48)
+position = Vector2(504, 49)
 scale = Vector2(2.65813, 5.36747)
 
 [node name="Ladder3" parent="Ladders" instance=ExtResource("2_vy1bu")]
-position = Vector2(247, -107)
+position = Vector2(248, -106)
 rotation = 3.14159
 scale = Vector2(2.5385, -9.37278)
 
@@ -86,11 +92,13 @@ position = Vector2(123, -250)
 [node name="Key" parent="Interactive" instance=ExtResource("8_xun56")]
 position = Vector2(584, 184)
 
+[node name="Button" parent="Interactive" instance=ExtResource("8_gyisl")]
+position = Vector2(736, -168)
+
 [node name="Companion" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_il8i3")]
 position = Vector2(386, -23)
 target = NodePath("../Player")
-follow_speed = null
-min_distance = null
+min_distance = 0.0
 
 [node name="Player" parent="." instance=ExtResource("7_bjvra")]
 position = Vector2(411, -11)
