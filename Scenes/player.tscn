@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://Scripts/Player/Animations/run_anim.gd" id="8_d5cf5"]
 [ext_resource type="Script" path="res://Scripts/Player/ladder_check.gd" id="9_sxq6s"]
 [ext_resource type="Script" path="res://Scripts/Player/Animations/climb_anim.gd" id="10_6nd1w"]
-[ext_resource type="Script" path="res://Scripts/Light/light.gd" id="12_7vfbe"]
+[ext_resource type="PackedScene" uid="uid://cwkx2a4ka8keq" path="res://Scenes/Level/light.tscn" id="12_tcnbx"]
 [ext_resource type="Texture2D" uid="uid://c6qxxne1pa40f" path="res://Resources/light/player_light1.png" id="13_gihde"]
 [ext_resource type="Texture2D" uid="uid://icivfn5rdjbx" path="res://Resources/light/player_light2.png" id="14_5j42c"]
 [ext_resource type="Texture2D" uid="uid://cygl7x8ce4obe" path="res://Resources/light/player_light3.png" id="15_ji2c4"]
@@ -208,8 +208,6 @@ size = Vector2(10.5, 14.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_et01t"]
 size = Vector2(2.5, 14)
 
-[sub_resource type="ImageTexture" id="ImageTexture_br71s"]
-
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -11)
 collision_layer = 2
@@ -251,7 +249,7 @@ default_scale = NodePath("Medium")
 player_root = NodePath("..")
 camera = NodePath("../Camera2D")
 player_movement = NodePath("../MovementController/MoveState")
-scale_speed = 0.5
+scale_speed = 0.3
 
 [node name="Small" type="Node2D" parent="Scaler"]
 script = ExtResource("4_ohq31")
@@ -307,10 +305,7 @@ script = ExtResource("9_sxq6s")
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_et01t")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-texture = SubResource("ImageTexture_br71s")
-texture_scale = 2.0
-script = ExtResource("12_7vfbe")
+[node name="PointLight2D" parent="." instance=ExtResource("12_tcnbx")]
 frames = Array[CompressedTexture2D]([ExtResource("13_gihde"), ExtResource("14_5j42c"), ExtResource("15_ji2c4"), ExtResource("16_osj2t"), ExtResource("17_0ewou")])
 
 [node name="Timer" type="Timer" parent="PointLight2D"]

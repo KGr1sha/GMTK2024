@@ -23,4 +23,3 @@ func _on_enter(_other : Node2D) -> void:
 
 func _on_exit(_other : Node2D) -> void:
 	player_in_range = false
-

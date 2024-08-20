@@ -1,27 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://be7lrdvf3syhw"]
+[gd_scene load_steps=9 format=3 uid="uid://be7lrdvf3syhw"]
 
 [ext_resource type="Script" path="res://Scripts/Key/key_lock.gd" id="1_tlw2d"]
-[ext_resource type="Texture2D" uid="uid://b35aau1unv3ca" path="res://Art/Environment/cavesofgallet_tiles.png" id="2_ys2dd"]
+[ext_resource type="Texture2D" uid="uid://cqr7w7g4lgi6a" path="res://Art/Environment/key_locker.png" id="2_0exnj"]
+[ext_resource type="PackedScene" uid="uid://cwkx2a4ka8keq" path="res://Scenes/Level/light.tscn" id="3_73c5k"]
+[ext_resource type="Texture2D" uid="uid://cygl7x8ce4obe" path="res://Resources/light/player_light3.png" id="4_5jw0u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bxwrs"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lghsp"]
-atlas = ExtResource("2_ys2dd")
-region = Rect2(40, 16, 8, 8)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nswg"]
+atlas = ExtResource("2_0exnj")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ljy45"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lghsp")
+"texture": SubResource("AtlasTexture_1nswg")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
+[sub_resource type="ImageTexture" id="ImageTexture_cv8tu"]
+
 [node name="KeyLock" type="Node2D"]
-position = Vector2(95, -20)
 script = ExtResource("1_tlw2d")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -33,3 +36,8 @@ shape = SubResource("CircleShape2D_bxwrs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ljy45")
+
+[node name="PointLight2D" parent="." instance=ExtResource("3_73c5k")]
+texture = SubResource("ImageTexture_cv8tu")
+texture_scale = 1.0
+frames = Array[CompressedTexture2D]([ExtResource("4_5jw0u")])

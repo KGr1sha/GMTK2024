@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://b3uaj87034p7a" path="res://Art/Environment/platform.png" id="2_2hnkl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cpxb"]
-size = Vector2(32, 2)
+size = Vector2(10, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3tw1"]
-size = Vector2(32, 1)
+size = Vector2(10, 1)
 
 [node name="Platform" type="StaticBody2D"]
 position = Vector2(32, -28)
@@ -16,7 +16,7 @@ script = ExtResource("1_rxg14")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_repeat = 2
-scale = Vector2(2, 1)
+position = Vector2(0, 2)
 texture = ExtResource("2_2hnkl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
