@@ -65,4 +65,5 @@ func try_set_scale(new_scale_id : int) -> bool:
 	target_player_scale = Vector2(new_scale.player_scale, new_scale.player_scale)
 	player_movement.speed_scale = new_scale.move_speed
 	player_movement.jump_scale = new_scale.jump_strength
+	player_movement.gravity_scale = new_scale.gravity_scale
 	return true

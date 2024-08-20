@@ -7,3 +7,4 @@ extends Node
 @export var jump_strength : float
 @export var move_speed : float
 @export var can_push : bool
+@export var gravity_scale : float

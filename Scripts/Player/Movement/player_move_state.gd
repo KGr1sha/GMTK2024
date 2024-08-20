@@ -13,6 +13,7 @@ var cyotee_timer : float
 
 var speed_scale : float = 1.0
 var jump_scale : float = 1.0
+var gravity_scale : float = 1.0
 
 var horizontal_input : float
 var vertical_input : float
@@ -46,7 +47,7 @@ func process(delta: float) -> void:
 func physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not body.is_on_floor():
-		body.velocity += body.get_gravity() * delta
+		body.velocity += body.get_gravity() * delta * gravity_scale
 
 	# Handle jump.
 	if want_to_jump and body.is_on_floor():
