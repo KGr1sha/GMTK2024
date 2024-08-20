@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://cxxngd4bbrp47"]
+[gd_scene load_steps=10 format=4 uid="uid://cxxngd4bbrp47"]
 
 [ext_resource type="PackedScene" uid="uid://c486y12tqawhf" path="res://Scenes/player.tscn" id="1_jjgoh"]
 [ext_resource type="PackedScene" uid="uid://biutssqy4fstl" path="res://Scenes/companion.tscn" id="2_tyxy6"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://43oo54ksomj2" path="res://Scenes/Level/door.tscn" id="4_d20ai"]
 [ext_resource type="PackedScene" uid="uid://cyi48bfpf5o0n" path="res://Scenes/Level/platform.tscn" id="5_lw0fo"]
 [ext_resource type="PackedScene" uid="uid://dk4mnxja1no2o" path="res://Scenes/Level/lever.tscn" id="5_wkiwv"]
+[ext_resource type="PackedScene" uid="uid://dfoat11revxxl" path="res://Scenes/Levels/level_2.tscn" id="6_ru37t"]
 [ext_resource type="Script" path="res://Scripts/Music/music.gd" id="8_sqymq"]
 
 [node name="level_1" type="Node2D"]
@@ -52,6 +53,7 @@ position = Vector2(278, -82)
 
 [node name="Door" parent="Interactive" node_paths=PackedStringArray("locks") instance=ExtResource("4_d20ai")]
 position = Vector2(503, 96)
+next_scene = ExtResource("6_ru37t")
 locks = [NodePath("../Lever")]
 
 [node name="Lever" parent="Interactive" instance=ExtResource("5_wkiwv")]

@@ -12,6 +12,7 @@ func _ready() -> void:
 func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_packed(level_to_load)
 
+
 func _on_settings_button_pressed() -> void:
 	$SettingsMenu.show()
 	$StartMenu.hide()

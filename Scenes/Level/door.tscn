@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://43oo54ksomj2"]
+[gd_scene load_steps=14 format=3 uid="uid://43oo54ksomj2"]
 
 [ext_resource type="Script" path="res://Scripts/door.gd" id="1_wel0b"]
 [ext_resource type="Texture2D" uid="uid://etoooo34en0h" path="res://Art/Environment/door.png" id="2_lvji7"]
@@ -56,6 +56,8 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gx2ke"]
+
 [node name="Door" type="Node2D" node_paths=PackedStringArray("locks")]
 script = ExtResource("1_wel0b")
 locks = [null]
@@ -69,3 +71,12 @@ frames = Array[CompressedTexture2D]([ExtResource("4_v6qrg")])
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_lsd6k")
+bus = &"SFX"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_gx2ke")
