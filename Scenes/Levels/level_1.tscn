@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://cxxngd4bbrp47"]
+[gd_scene load_steps=9 format=4 uid="uid://cxxngd4bbrp47"]
 
 [ext_resource type="PackedScene" uid="uid://c486y12tqawhf" path="res://Scenes/player.tscn" id="1_jjgoh"]
 [ext_resource type="PackedScene" uid="uid://biutssqy4fstl" path="res://Scenes/companion.tscn" id="2_tyxy6"]
@@ -6,9 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://cou5kd7d64mwb" path="res://Scenes/Level/ladder.tscn" id="4_3nrx4"]
 [ext_resource type="PackedScene" uid="uid://43oo54ksomj2" path="res://Scenes/Level/door.tscn" id="4_d20ai"]
 [ext_resource type="PackedScene" uid="uid://cyi48bfpf5o0n" path="res://Scenes/Level/platform.tscn" id="5_lw0fo"]
-[ext_resource type="PackedScene" uid="uid://bn20aluh8tesa" path="res://Scenes/Level/lever.tscn" id="5_wkiwv"]
+[ext_resource type="PackedScene" uid="uid://dk4mnxja1no2o" path="res://Scenes/Level/lever.tscn" id="5_wkiwv"]
+[ext_resource type="Script" path="res://Scripts/Music/music.gd" id="8_sqymq"]
 
 [node name="level_1" type="Node2D"]
+
+[node name="Music" type="Node2D" parent="."]
+script = ExtResource("8_sqymq")
 
 [node name="Layers" type="Node2D" parent="."]
 
@@ -22,7 +26,6 @@ tile_map_data = PackedByteArray("AAAKAAQAAQABAAIAAAAKAAMAAQAJAAAAAAAKAAIAAQABAAE
 tile_set = ExtResource("3_psvb1")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Layers"]
-visible = false
 color = Color(0.0784314, 0.0784314, 0.0784314, 1)
 
 [node name="Ladders" type="Node2D" parent="."]
@@ -57,7 +60,6 @@ position = Vector2(410, 94)
 [node name="Companion" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_tyxy6")]
 position = Vector2(20, -30)
 target = NodePath("../Player")
-min_distance = 30.0
 
 [node name="Player" parent="." instance=ExtResource("1_jjgoh")]
 position = Vector2(58, -11)

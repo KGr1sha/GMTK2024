@@ -24,7 +24,6 @@ tile_map_data = PackedByteArray("AAAeAAUAAQACAAIAAAAeAAQAAQACAAEAAAAeAAMAAQACAAE
 tile_set = ExtResource("1_sgxu7")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Layers"]
-visible = false
 color = Color(0.0784314, 0.0784314, 0.0784314, 1)
 
 [node name="Ladders" type="Node2D" parent="."]
@@ -90,7 +89,8 @@ position = Vector2(584, 184)
 [node name="Companion" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_il8i3")]
 position = Vector2(386, -23)
 target = NodePath("../Player")
-min_distance = 30.0
+follow_speed = null
+min_distance = null
 
 [node name="Player" parent="." instance=ExtResource("7_bjvra")]
 position = Vector2(411, -11)

@@ -15,4 +15,3 @@ func unlock() -> void:
 func lock() -> void:
 	opened = false
 	unlocked.emit()
-

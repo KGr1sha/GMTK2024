@@ -5,10 +5,11 @@ extends Node2D
 @export var locks : Array[Lock]
 var is_opened : bool
 var animated_sprite : AnimatedSprite2D
-
+var sound : AudioStreamPlayer2D
 
 func _ready() -> void:
 	animated_sprite = get_node("AnimatedSprite2D")
+	sound = get_node("AudioStreamPlayer2D")
 	is_opened = false
 	for lock : Lock in locks:
 		lock.unlocked.connect(try_open)
@@ -22,6 +23,8 @@ func try_open() -> void:
 	if all_opened():
 		is_opened = true
 		animated_sprite.play("open")
+		await animated_sprite.animation_finished
+		sound.play()
 
 
 func all_opened() -> bool:
